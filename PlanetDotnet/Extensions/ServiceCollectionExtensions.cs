@@ -16,6 +16,7 @@ using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Services.Foundations.Authors;
 using PlanetDotnet.Services.Foundations.Localizations;
+using PlanetDotnet.Services.Views.Authors.Profiles;
 using System.Reflection;
 
 namespace PlanetDotnet.Extensions
@@ -36,6 +37,7 @@ namespace PlanetDotnet.Extensions
         {
             services.AddScoped<IAuthorService, AuthorService>(); 
             services.AddScoped<ILocalizatonService, LocalizatonService>(); 
+            services.AddScoped<IProfileViewService, ProfileViewService>(); 
         }
 
         public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)
