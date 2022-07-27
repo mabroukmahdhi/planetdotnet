@@ -23,7 +23,7 @@ namespace PlanetDotnet.Brokers.Gravatars
 
         public string GetGravatarImage(IAmACommunityMember member)
         {
-            int size = this.localConfigurations.DefaultGravatarImageSize;
+            int size = this.localConfigurations?.DefaultGravatarImageSize ?? 200;
 
             var hash = member.GravatarHash;
 
@@ -34,7 +34,7 @@ namespace PlanetDotnet.Brokers.Gravatars
                 hash = ToMd5Hash(hash).ToLowerInvariant();
             }
 
-            var defaultImage = this.localConfigurations.DefaultGravatarImage;
+            var defaultImage = this.localConfigurations?.DefaultGravatarImage ?? "mm";
 
             return $"//www.gravatar.com/avatar/{hash}.jpg?s={size}&d={defaultImage}";
         }

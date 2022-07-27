@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Services.Foundations.Authors.Exceptions;
+using PlanetDotnet.Models.Foundations.Authors.Exceptions;
 using System;
 
 namespace PlanetDotnet.Services.Foundations.Authors
@@ -23,6 +23,10 @@ namespace PlanetDotnet.Services.Foundations.Authors
             {
                 throw CreateAndLogValidationException(nullAuthorException);
             }
+            catch (Exception exception)
+            {
+                throw CreateAndLogServiceException(exception);
+            }
         }
 
         private AuthorValidationException CreateAndLogValidationException(Exception exception)
@@ -31,6 +35,14 @@ namespace PlanetDotnet.Services.Foundations.Authors
             this.loggingBroker.LogError(authorValidationException);
 
             return authorValidationException;
+        }
+
+        private AuthorServiceException CreateAndLogServiceException(Exception exception)
+        {
+            var authorServiceException = new AuthorServiceException(exception);
+            this.loggingBroker.LogError(authorServiceException);
+
+            return authorServiceException;
         }
     }
 

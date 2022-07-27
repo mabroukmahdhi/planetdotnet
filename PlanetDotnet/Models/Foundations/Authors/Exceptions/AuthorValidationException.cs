@@ -6,7 +6,7 @@
 
 using System;
 
-namespace PlanetDotnet.Services.Foundations.Authors.Exceptions
+namespace PlanetDotnet.Models.Foundations.Authors.Exceptions
 {
     public class AuthorValidationException : Exception
     {
