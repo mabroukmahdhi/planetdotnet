@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "PlanetDotnet.Api": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7269",
+      "launchBrowser": false
+    }
+  }
+}
