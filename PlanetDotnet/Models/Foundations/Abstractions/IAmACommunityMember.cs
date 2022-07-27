@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Models.Foundations.GeoPositions;
+using PlanetDotnet.Models.Foundations.Tags;
 using System;
 using System.Collections.Generic;
 
@@ -24,5 +25,6 @@ namespace PlanetDotnet.Models.Foundations.Abstractions
         IEnumerable<Uri> FeedUris { get; }
         GeoPosition Position { get; }
         string FeedLanguageCode { get; }
+        IEnumerable<Tag> Tags { get; }
     }
 }

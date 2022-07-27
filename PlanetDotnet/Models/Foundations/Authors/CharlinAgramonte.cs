@@ -6,6 +6,7 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.GeoPositions;
+using PlanetDotnet.Models.Foundations.Tags;
 using System;
 using System.Collections.Generic;
 
@@ -26,6 +27,7 @@ namespace PlanetDotnet.Models.Foundations.Authors
         public Uri WebSite => new Uri("https://xamgirl.com/");
         public IEnumerable<Uri> FeedUris { get { yield return new Uri("https://xamgirl.com/rss"); } }
         public string FeedLanguageCode => "en";
+        public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin, Tag.DotNetMAUI };
     }
 
 }
