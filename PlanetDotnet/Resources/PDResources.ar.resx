@@ -120,10 +120,22 @@
   <data name="APP_TITLE" xml:space="preserve">
     <value>كوكب .NET</value>
   </data>
+  <data name="AUTHORS" xml:space="preserve">
+    <value>المدونون</value>
+  </data>
   <data name="AUTHORS_ALERT" xml:space="preserve">
     <value>الترتيب عشوائي. تحديث للتبديل.</value>
   </data>
+  <data name="FACEBOOK" xml:space="preserve">
+    <value>فيسبوك</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>الاستقبال</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>البحث عن اسم المدوّن ...</value>
+  </data>
+  <data name="TWITTER" xml:space="preserve">
+    <value>تويتر</value>
   </data>
 </root>
