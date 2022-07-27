@@ -1,0 +1,30 @@
+﻿@page "/authors"
+@using PlanetDotnet.Models.Foundations.Abstractions
+@using PlanetDotnet.Views.Components.MapComponents
+@using PlanetDotnet.Views.Components.PageContainers
+@using PlanetDotnet.Views.Components.ProfileComponents
+@using PrettyBlazor
+
+@if (Members != null)
+{
+    <MapComponent Authors="Members" />
+}
+
+<PageContainer>
+    <Body>
+        <div class="alert alert-info text-center" role="alert">
+            <i class="fa fa-info-circle"></i> @Localizer["AUTHORS_ALERT"].
+        </div>
+
+        <div class="text-center col-md-12">
+            <input type="text"
+                   class="live-search-box form-control text-center"
+                   placeholder="@Localizer["SEARCH"]"
+                   @oninput=@SearchTextChanged />
+        </div>
+
+        <Iterations Items="Members">
+            <ProfileComponent Member="@context" />
+        </Iterations>
+    </Body>
+</PageContainer>

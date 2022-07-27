@@ -6,6 +6,7 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.GeoPositions;
+using PlanetDotnet.Models.Foundations.Tags;
 using System;
 using System.Collections.Generic;
 
@@ -37,6 +38,7 @@ namespace PlanetDotnet.Models.Foundations.Authors
         public string GitHubHandle => "jamesmontemagno";
         public GeoPosition Position => new GeoPosition(47.6541770, -122.3500000);
         public string FeedLanguageCode => "en";
+        public IEnumerable<Tag> Tags => new List<Tag> { Tag.Default };
 
     }
 

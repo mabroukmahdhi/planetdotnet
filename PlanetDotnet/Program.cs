@@ -19,6 +19,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.AddAutofacServiceProvider();
 
 builder.Services.AddBrokers();
+builder.Services.AddServices();
 
 builder.Services.AddScoped(sp =>
     new HttpClient

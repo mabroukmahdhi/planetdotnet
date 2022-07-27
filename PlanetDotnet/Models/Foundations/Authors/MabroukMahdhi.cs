@@ -6,6 +6,7 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.GeoPositions;
+using PlanetDotnet.Models.Foundations.Tags;
 using System;
 using System.Collections.Generic;
 
@@ -36,5 +37,7 @@ namespace PlanetDotnet.Models.Foundations.Authors
         public GeoPosition Position => new(50.297, 8.26896);
 
         public string FeedLanguageCode => "en";
+
+        public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin, Tag.Blazor };
     }
 }

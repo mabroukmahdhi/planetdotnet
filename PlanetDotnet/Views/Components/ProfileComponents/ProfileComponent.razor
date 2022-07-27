@@ -1,0 +1,48 @@
+﻿@using PlanetDotnet.Models.Foundations.Tags
+@if (ProfileView != null)
+{
+    <div class="col-md-4 profileCard" id="@ProfileView.Id">
+        <img class="mugShot" src="@ProfileView.Avatar" alt="@ProfileView.FullName" />
+        <div class="mugShotBorder">
+        </div>
+        <div class="profileCardWrapper">
+
+            <p class="name">@ProfileView.FullName</p>
+            <p class="twitter">
+                <a href="https://twitter.com/@ProfileView.TwitterHandle">@ProfileView.TwitterHandle</a>
+            </p>
+
+            <p class="description">
+                @ProfileView.Description
+            </p>
+
+            <p class="tags">
+
+                @if (ProfileView.Tags != null)
+                {
+                    @foreach (var tag in ProfileView.Tags)
+                    {
+                        <span class="badge badge-info">@tag</span>
+                    }
+                }
+                else
+                {
+                    <span class="badge badge-info">@Tag.Default</span>
+                }
+            </p>
+
+            <p class="location">
+                <i class="fa fa-map-marker"></i> @ProfileView.StateOrRegion
+            </p>
+            <p class="website">
+                <a href="@ProfileView.WebSite" title="@ProfileView.WebSite">@ProfileView.WebSite</a>
+            </p>
+        </div>
+    </div>
+}
+
+<style>
+    span + span {
+        margin-left: 5px;
+    }
+</style>

@@ -4,14 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using SharpStyles.Models;
-using SharpStyles.Models.Attributes;
+using PlanetDotnet.Models.Foundations.Abstractions;
+using PlanetDotnet.Models.Foundations.Markers;
+using System.Collections.Generic;
 
-namespace PlanetDotnet.Models.Views.Bases.Headers
+namespace PlanetDotnet.Services.Views.MapViews
 {
-    public class HeaderStyles : SharpStyle
+    public interface IMapViewService
     {
-        [CssClass(selector = ".navbar-collapse.in")]
-        public SharpStyle NavbarCollapsed { get; set; }
+        IEnumerable<Marker> CreateMarkers(IEnumerable<IAmACommunityMember> authors);
     }
 }

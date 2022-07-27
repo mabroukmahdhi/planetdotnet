@@ -4,11 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Configurations
+namespace PlanetDotnet.Models.Foundations.Markers
 {
-    public class LocalConfigurations
+    public class Marker
     {
-        public string DefaultGravatarImage { get; set; }
-        public int DefaultGravatarImageSize { get; set; }
+        public string Id { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
+        public string Name { get; set; }
+        public string Gravatar { get; set; }
     }
 }

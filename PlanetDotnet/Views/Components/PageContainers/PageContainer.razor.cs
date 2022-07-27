@@ -4,11 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Configurations
+using Microsoft.AspNetCore.Components;
+
+namespace PlanetDotnet.Views.Components.PageContainers
 {
-    public class LocalConfigurations
+    public partial class PageContainer : ComponentBase
     {
-        public string DefaultGravatarImage { get; set; }
-        public int DefaultGravatarImageSize { get; set; }
+        [Parameter]
+        public RenderFragment Body { get; set; }
     }
 }
