@@ -19,7 +19,10 @@ using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
 using PlanetDotnet.Services.Views.MapViews;
+using System;
+using System.Globalization;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Extensions
 {
@@ -48,6 +51,29 @@ namespace PlanetDotnet.Extensions
         {
             builder.ConfigureContainer(new AutofacServiceProviderFactory(ConfigureContainer));
         }
+
+        public static async Task SetDefaultCulture(
+            this IServiceProvider services)
+        {
+            var localizatonService =
+                 services.GetRequiredService<ILocalizatonService>();
+
+            var culture =
+                await localizatonService.GetCurrentCultureAsnyc();
+
+            if (string.IsNullOrWhiteSpace(culture))
+            {
+                culture = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+                await localizatonService.SetCurrentCultureAsnyc(culture);
+            }
+
+            CultureInfo.DefaultThreadCurrentCulture =
+                new CultureInfo(culture);
+
+            CultureInfo.DefaultThreadCurrentUICulture =
+                new CultureInfo(culture);
+        }
+
 
         private static void ConfigureContainer(ContainerBuilder builder)
         {

@@ -129,6 +129,9 @@
   <data name="FACEBOOK" xml:space="preserve">
     <value>Facebook</value>
   </data>
+  <data name="FOOTER_TEXT" xml:space="preserve">
+    <value>Bloggen Sie über .NET? Fügen Sie sich dem Aggregator hinzu, indem Sie eine &lt;a href="https://github.com/mabroukmahdhi/planetdotnet"&gt;Pull-Request an unser Repository&lt;/a&gt; auf GitHub senden. Planet .NET ist nicht mit Microsoft verbunden und ist ein Open-Source-Projekt, das von der Community für die Community gepflegt wird.</value>
+  </data>
   <data name="HOME" xml:space="preserve">
     <value>Home</value>
   </data>
