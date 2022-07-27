@@ -40,8 +40,9 @@ namespace PlanetDotnet.Views.Pages
                 this.Members = authers;
 
             this.Members = authers.Where(i =>
-                $"{i.FirstName}{i.LastName}".ToLower()
-                    .Contains(name));
+                $"{i.FirstName}{i.LastName}{string.Join("", i.Tags)}"
+                .ToLowerInvariant()
+                .Contains(name));
 
             StateHasChanged();
         }
