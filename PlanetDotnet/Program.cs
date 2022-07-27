@@ -7,8 +7,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using PlanetDotnet;
 using PlanetDotnet.Extensions;
+using PlanetDotnet.Views;
 using System;
 using System.Net.Http;
 
@@ -17,6 +17,8 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.AddAutofacServiceProvider();
+
+builder.Services.AddBrokers();
 
 builder.Services.AddScoped(sp =>
     new HttpClient
