@@ -27,7 +27,8 @@ namespace PlanetDotnet.Services.Views.Authors.Profiles
                 StateOrRegion = author.StateOrRegion,
                 TwitterHandle = author.TwitterHandle,
                 WebSite = author.WebSite.ToString(),
-                Description = MakeDescription(author)
+                Description = MakeDescription(author),
+                Tags = author.Tags
             };
         }
 

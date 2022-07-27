@@ -4,6 +4,9 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Models.Foundations.Tags;
+using System.Collections.Generic;
+
 namespace PlanetDotnet.Models.Views.Authors
 {
     public class ProfileView
@@ -15,5 +18,6 @@ namespace PlanetDotnet.Models.Views.Authors
         public string Description { get; set; }
         public string StateOrRegion { get; set; }
         public string WebSite { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }
