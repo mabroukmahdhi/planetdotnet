@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using SharpStyles.Models.Attributes;
 using SharpStyles.Models;
+using SharpStyles.Models.Attributes;
 
 namespace PlanetDotnet.Models.Views.Bases.Headers
 {

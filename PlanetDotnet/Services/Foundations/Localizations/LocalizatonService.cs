@@ -6,9 +6,9 @@
 
 using Blazored.LocalStorage;
 using PlanetDotnet.Brokers.Localizations;
+using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using System;
 
 namespace PlanetDotnet.Services.Foundations.Localizations
 {

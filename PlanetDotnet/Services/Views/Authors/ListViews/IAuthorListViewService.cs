@@ -4,11 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Configurations
+using PlanetDotnet.Models.Foundations.Abstractions;
+using System.Collections.Generic;
+
+namespace PlanetDotnet.Services.Views.Authors.ListViews
 {
-    public class LocalConfigurations
+    public interface IAuthorListViewService
     {
-        public string DefaultGravatarImage { get; set; }
-        public int DefaultGravatarImageSize { get; set; }
+        IEnumerable<IAmACommunityMember> LoadCommunityMembers();
     }
 }
