@@ -14,7 +14,6 @@ namespace PlanetDotnet.Api.Models.FeedRequests
         public string WebSite { get; set; }
         public string Email { get; set; }
         public string Language { get; set; }
-        public IEnumerable<string> FeedUris { get; set; }
-        public IEnumerable<string> Tags { get; set; }
+        public IEnumerable<string> FeedUris { get; set; } 
     }
 }

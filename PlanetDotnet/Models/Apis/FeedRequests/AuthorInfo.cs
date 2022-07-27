@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace PlanetDotnet.Models.FeedRequests
+namespace PlanetDotnet.Models.Apis.FeedRequests
 {
     public class AuthorInfo
     {
@@ -15,6 +15,5 @@ namespace PlanetDotnet.Models.FeedRequests
         public string Email { get; set; }
         public string Language { get; set; }
         public IEnumerable<string> FeedUris { get; set; }
-        public IEnumerable<string> Tags { get; set; }
     }
 }

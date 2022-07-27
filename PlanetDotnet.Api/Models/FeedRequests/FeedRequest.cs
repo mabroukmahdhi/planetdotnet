@@ -13,5 +13,6 @@ namespace PlanetDotnet.Api.Models.FeedRequests
         public int MaxItems { get; set; } = 150;
         public string FeedLanguage { get; set; } = "mixed";
         public IEnumerable<AuthorInfo> Authors { get; set; }
+        public IEnumerable<string> Tags { get; set; }
     }
 }
