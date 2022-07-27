@@ -12,6 +12,7 @@
     <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0-preview.6.22330.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0-preview.6.22330.3" PrivateAssets="all" />
+    <PackageReference Include="SharpStyles" Version="0.3.0" />
   </ItemGroup>
 
   <ItemGroup>
