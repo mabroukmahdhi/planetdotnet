@@ -5,6 +5,7 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Models.Foundations.Abstractions;
+using PlanetDotnet.Models.Foundations.Authors.Exceptions;
 
 namespace PlanetDotnet.Services.Foundations.Authors
 {
