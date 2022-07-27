@@ -5,14 +5,16 @@
 // ---------------------------------------------------------------
 
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Globalization;
+using PlanetDotnet.Brokers.Authors;
+using PlanetDotnet.Brokers.Gravatars;
+using PlanetDotnet.Brokers.Localizations;
+using PlanetDotnet.Brokers.Loggings;
 using System.Reflection;
-using System.Threading.Tasks;
-using System;
-using Autofac.Extensions.DependencyInjection;
 
 namespace PlanetDotnet.Extensions
 {
@@ -20,12 +22,17 @@ namespace PlanetDotnet.Extensions
     {
         public static void AddBrokers(this IServiceCollection services)
         {
-            
+            services.AddSingleton<IAuthorBroker, AuthorBroker>();
+            services.AddScoped<IGravatarBroker, GravatarBroker>();
+            services.AddScoped<ILogger, Logger<LoggingBroker>>();
+            services.AddScoped<ILoggingBroker, LoggingBroker>();
+            services.AddBlazoredLocalStorage();
+            services.AddScoped<ILocalizationBroker, LocalizationBroker>();
         }
 
         public static void AddServices(this IServiceCollection services)
         {
-            
+
         }
 
         public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)
