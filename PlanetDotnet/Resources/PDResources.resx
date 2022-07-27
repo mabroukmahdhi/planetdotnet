@@ -120,10 +120,22 @@
   <data name="APP_TITLE" xml:space="preserve">
     <value>Planet .NET</value>
   </data>
+  <data name="AUTHORS" xml:space="preserve">
+    <value>Authors</value>
+  </data>
   <data name="AUTHORS_ALERT" xml:space="preserve">
     <value>Order is random. Refresh to shuffle.</value>
   </data>
+  <data name="FACEBOOK" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="HOME" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>Search on author name...</value>
+  </data>
+  <data name="TWITTER" xml:space="preserve">
+    <value>Twitter</value>
   </data>
 </root>

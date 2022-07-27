@@ -70,6 +70,15 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Authors.
+        /// </summary>
+        public static string AUTHORS {
+            get {
+                return ResourceManager.GetString("AUTHORS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order is random. Refresh to shuffle..
         /// </summary>
         public static string AUTHORS_ALERT {
@@ -79,11 +88,38 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string FACEBOOK {
+            get {
+                return ResourceManager.GetString("FACEBOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HOME {
+            get {
+                return ResourceManager.GetString("HOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search on author name....
         /// </summary>
         public static string SEARCH {
             get {
                 return ResourceManager.GetString("SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitter.
+        /// </summary>
+        public static string TWITTER {
+            get {
+                return ResourceManager.GetString("TWITTER", resourceCulture);
             }
         }
     }
