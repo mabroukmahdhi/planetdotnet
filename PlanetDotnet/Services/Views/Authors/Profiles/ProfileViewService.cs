@@ -4,36 +4,56 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Authors;
 using PlanetDotnet.Services.Foundations.Authors;
+using System;
 
 namespace PlanetDotnet.Services.Views.Authors.Profiles
 {
     public class ProfileViewService : IProfileViewService
     {
         private readonly IAuthorService authorService;
+        private readonly ILoggingBroker loggingBroker;
 
-        public ProfileViewService(IAuthorService authorService) =>
-             this.authorService = authorService;
+        public ProfileViewService(
+            IAuthorService authorService,
+            ILoggingBroker loggingBroker)
+        {
+            this.authorService = authorService;
+            this.loggingBroker = loggingBroker;
+        }
 
         public ProfileView InitializeProfileView(IAmACommunityMember author)
         {
-            return new ProfileView
+            try
             {
-                Id = author.GetType().Name,
-                Avatar = RetrieveAvatar(author),
-                FullName = $"{author.FirstName} {author.LastName}",
-                StateOrRegion = author.StateOrRegion,
-                TwitterHandle = author.TwitterHandle,
-                WebSite = author.WebSite.ToString(),
-                Description = MakeDescription(author),
-                Tags = author.Tags
-            };
+                return new ProfileView
+                {
+                    Id = author.GetType().Name,
+                    Avatar = RetrieveAvatar(author),
+                    FullName = $"{author.FirstName} {author.LastName}",
+                    StateOrRegion = author.StateOrRegion,
+                    TwitterHandle = author.TwitterHandle,
+                    WebSite = author.WebSite.ToString(),
+                    Description = MakeDescription(author),
+                    Tags = author.Tags
+                };
+
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                return null;
+            }
         }
 
         public string RetrieveAvatar(IAmACommunityMember author) =>
            this.authorService.RetrieveAuthorImage(author);
+
+        public void LogError(Exception ex) =>
+            this.loggingBroker.LogError(ex);
 
         private string MakeDescription(IAmACommunityMember author)
         {

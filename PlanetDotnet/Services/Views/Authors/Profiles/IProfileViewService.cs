@@ -6,6 +6,7 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Authors;
+using System;
 
 namespace PlanetDotnet.Services.Views.Authors.Profiles
 {
@@ -13,5 +14,6 @@ namespace PlanetDotnet.Services.Views.Authors.Profiles
     {
         ProfileView InitializeProfileView(IAmACommunityMember author);
         string RetrieveAvatar(IAmACommunityMember author);
+        void LogError(Exception ex);
     }
 }
