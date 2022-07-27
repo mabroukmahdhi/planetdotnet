@@ -4,9 +4,9 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Collections.Generic;
-using System;
 using PlanetDotnet.Models.Foundations.GeoPositions;
+using System;
+using System.Collections.Generic;
 
 namespace PlanetDotnet.Models.Foundations.Abstractions
 {
