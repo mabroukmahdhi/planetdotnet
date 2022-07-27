@@ -12,5 +12,7 @@ namespace PlanetDotnet.Views.Components.PageContainers
     {
         [Parameter]
         public RenderFragment Body { get; set; }
+
+        public string Direction => Localizer.IsRightToLeft ? "rtl" : "ltr";
     }
 }

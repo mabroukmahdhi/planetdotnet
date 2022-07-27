@@ -133,7 +133,7 @@
     <value>Home</value>
   </data>
   <data name="SEARCH" xml:space="preserve">
-    <value>Search on author name...</value>
+    <value>Search on author name and tag...</value>
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>Twitter</value>

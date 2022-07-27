@@ -106,7 +106,7 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search on author name....
+        ///   Looks up a localized string similar to Search on author name and tag....
         /// </summary>
         public static string SEARCH {
             get {

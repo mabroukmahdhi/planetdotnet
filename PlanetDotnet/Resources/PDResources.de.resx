@@ -124,7 +124,7 @@
     <value>Authorinnen &amp; Authoren</value>
   </data>
   <data name="AUTHORS_ALERT" xml:space="preserve">
-    <value>Die Reihenfolge ist zufällig. Zum Mischen aktualisieren.</value>
+    <value>Die Reihenfolge ist zufällig. Aktualisieren um zu mischen.</value>
   </data>
   <data name="FACEBOOK" xml:space="preserve">
     <value>Facebook</value>
@@ -133,7 +133,7 @@
     <value>Home</value>
   </data>
   <data name="SEARCH" xml:space="preserve">
-    <value>Nach Namen suchen...</value>
+    <value>Nach Namen &amp; Tag suchen...</value>
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>Twitter</value>
