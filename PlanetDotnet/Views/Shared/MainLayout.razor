@@ -1,18 +1,6 @@
 ﻿@using PlanetDotnet.Views.Bases.Headers 
+@using PlanetDotnet.Views.Components.HeaderComponents
 @inherits LayoutComponentBase
-<HeaderBase>
-    <Left>
-        <div class="navbar-brand-title">@Localizer["APP_TITLE"]</div>
-    </Left>
-    <Right>
-        <ul class="nav navbar-nav">
-            <li><a href="/">@Localizer["HOME"]</a></li>
-            <li><a href="/authors">@Localizer["AUTHORS"]</a></li>
-            <li><a href="/api/feed"><i class="fa fa-rss" aria-hidden="true"></i> <span id="rssText">RSS Feed</span></a></li>
-            <li><a href="https://twitter.com/PlanetXamarin"><i class="fa fa-twitter" aria-hidden="true"></i> <span id="twitterText">@Localizer["TWITTER"]</span></a></li>
-            <li><a href="https://www.facebook.com/planetxamarin/"><i class="fa fa-facebook" aria-hidden="true"></i> <span id="facebookText">@Localizer["FACEBOOK"]</span></a></li>
-        </ul> 
-    </Right>
-</HeaderBase>
+<HeaderComponent />
 
 @Body

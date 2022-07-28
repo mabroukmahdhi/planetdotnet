@@ -31,6 +31,8 @@ builder.Services.AddScoped(sp =>
 
 var host = builder.Build();
 
-await host.Services.SetDefaultCulture();
+await host.Services.SetDefaultCultureAsync();
+
+await host.Services.InitializeFeedsAsync();
 
 await host.RunAsync();

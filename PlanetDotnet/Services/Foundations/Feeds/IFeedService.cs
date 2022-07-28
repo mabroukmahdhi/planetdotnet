@@ -10,6 +10,7 @@ namespace PlanetDotnet.Services.Foundations.Feeds
 {
     public interface IFeedService
     {
-        ValueTask NavigateToFeedsAsync();
+        ValueTask InitializeFeedsAsync();
+        void NavigateToFeeds();
     }
 }

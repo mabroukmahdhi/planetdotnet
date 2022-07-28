@@ -9,7 +9,6 @@ using PlanetDotnet.Models.Apis.FeedRequests;
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.Configurations;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -47,11 +46,16 @@ namespace PlanetDotnet.Brokers.Feeds
                  requestUri: this.localConfigurations.FeedApiUrl,
                  value: feedRquest);
 
-            var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsByteArrayAsync();
 
-            File.WriteAllText(
-                path: this.localConfigurations.FeedFilePath,
-                contents: content);
+            using var fileStream = await httpClient.GetStreamAsync(
+                requestUri: this.localConfigurations.FeedFilePath);
+
+            await fileStream.WriteAsync(content);
+
+            //File.WriteAllText(
+            //    path: filePath,
+            //    contents: content);
         }
 
         private static IEnumerable<AuthorInfo> GenerateAuthorInfos(

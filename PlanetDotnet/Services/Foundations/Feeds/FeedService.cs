@@ -34,14 +34,15 @@ namespace PlanetDotnet.Services.Foundations.Feeds
                 configuration.Get<LocalConfigurations>();
         }
 
-        public async ValueTask NavigateToFeedsAsync()
+        public async ValueTask InitializeFeedsAsync()
         {
             var authors = this.authorBroker.SelectAllAuthers();
 
-            await this.feedBroker.CeateFeedFileAsync(authors);
+          //  await this.feedBroker.CeateFeedFileAsync(authors);
+        }
 
+        public void NavigateToFeeds() =>
             this.navigationBroker.NavigateTo(
                 url: this.localConfigurations.FeedPagePath);
-        }
     }
 }

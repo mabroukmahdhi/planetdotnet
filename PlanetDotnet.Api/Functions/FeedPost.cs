@@ -16,7 +16,7 @@ namespace PlanetDotnet.Api.Functions
     {
         [FunctionName("FeedPost")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "feed")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "feed")] HttpRequest req,
             ILogger log)
         {
             try

@@ -17,6 +17,7 @@ using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Brokers.Navigations;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Services.Foundations.Feeds;
 using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
@@ -53,6 +54,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IMapViewService, MapViewService>();
             services.AddScoped<IPodcastViewService, PodcastViewService>();
             services.AddScoped<IWelcomeViewService, WelcomeViewService>();
+            services.AddScoped<IFeedService, FeedService>();
         }
 
         public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)
@@ -60,7 +62,7 @@ namespace PlanetDotnet.Extensions
             builder.ConfigureContainer(new AutofacServiceProviderFactory(ConfigureContainer));
         }
 
-        public static async Task SetDefaultCulture(
+        public static async ValueTask SetDefaultCultureAsync(
             this IServiceProvider services)
         {
             var localizatonService =
@@ -80,6 +82,15 @@ namespace PlanetDotnet.Extensions
 
             CultureInfo.DefaultThreadCurrentUICulture =
                 new CultureInfo(culture);
+        }
+
+        public static async ValueTask InitializeFeedsAsync(
+         this IServiceProvider services)
+        {
+            var feedService =
+                 services.GetRequiredService<IFeedService>();
+
+            await feedService.InitializeFeedsAsync();
         }
 
 
