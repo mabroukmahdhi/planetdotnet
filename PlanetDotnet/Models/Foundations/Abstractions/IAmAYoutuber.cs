@@ -6,6 +6,6 @@
 
 namespace PlanetDotnet.Models.Foundations.Abstractions
 {
-    public interface IAmAMicrosoftMVP : IAmACommunityMember
+    public interface IAmAYoutuber : IAmACommunityMember
     { }
 }
