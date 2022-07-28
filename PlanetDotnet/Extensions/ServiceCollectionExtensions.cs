@@ -19,6 +19,7 @@ using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
 using PlanetDotnet.Services.Views.MapViews;
+using PlanetDotnet.Services.Views.Podcasts;
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -45,6 +46,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IProfileViewService, ProfileViewService>();
             services.AddScoped<IAuthorListViewService, AuthorListViewService>();
             services.AddScoped<IMapViewService, MapViewService>();
+            services.AddScoped<IPodcastViewService, PodcastViewService>();
         }
 
         public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)

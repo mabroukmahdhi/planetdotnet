@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32708.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetDotnet", "PlanetDotnet\PlanetDotnet.csproj", "{2766D07D-376F-41B6-9ABD-6E27AA8AB01D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet", "PlanetDotnet\PlanetDotnet.csproj", "{2766D07D-376F-41B6-9ABD-6E27AA8AB01D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetDotnet.Api", "PlanetDotnet.Api\PlanetDotnet.Api.csproj", "{B741B610-E68E-4017-9D06-EDA9C71A35DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet.Api", "PlanetDotnet.Api\PlanetDotnet.Api.csproj", "{B741B610-E68E-4017-9D06-EDA9C71A35DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
