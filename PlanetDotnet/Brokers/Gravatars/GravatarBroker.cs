@@ -7,23 +7,19 @@
 using Microsoft.Extensions.Configuration;
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.Configurations;
-using System.Net.Http;
 
 namespace PlanetDotnet.Brokers.Gravatars
 {
     public class GravatarBroker : IGravatarBroker
     {
         private readonly LocalConfigurations localConfigurations;
-        private readonly HttpClient httpClient;
         public GravatarBroker(
-            HttpClient httpClient,
             IConfiguration configuration)
         {
-            this.httpClient = httpClient;
-
             this.localConfigurations =
                 configuration.Get<LocalConfigurations>();
         }
+
         public string GetGravatarImage(IAmACommunityMember member)
         {
             int size = this.localConfigurations?.DefaultGravatarImageSize ?? 200;

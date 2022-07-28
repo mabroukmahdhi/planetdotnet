@@ -6,9 +6,9 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.GeoPositions;
-using System.Collections.Generic;
-using System;
 using PlanetDotnet.Models.Foundations.Tags;
+using System;
+using System.Collections.Generic;
 
 namespace PlanetDotnet.Models.Foundations.Authors
 {
