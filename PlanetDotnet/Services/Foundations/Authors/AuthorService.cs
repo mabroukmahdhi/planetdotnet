@@ -49,7 +49,7 @@ namespace PlanetDotnet.Services.Foundations.Authors
             return this.gravatarBroker.GetGravatarImage(author);
         });
 
-        public async ValueTask PostFeedsAsync()
+        public async void PostFeeds()
         {
             var authors = this.authorBroker.SelectAllAuthers();
 

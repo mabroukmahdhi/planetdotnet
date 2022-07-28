@@ -82,13 +82,13 @@ namespace PlanetDotnet.Extensions
                 new CultureInfo(culture);
         }
 
-        public static async ValueTask PostFeedsAsync(
-                   this IServiceProvider services)
+        public static void PostFeeds(
+            this IServiceProvider services)
         {
             var authorService =
                  services.GetRequiredService<IAuthorService>();
 
-            await authorService.PostFeedsAsync();
+            authorService.PostFeeds();
         }
 
         private static void ConfigureContainer(ContainerBuilder builder)

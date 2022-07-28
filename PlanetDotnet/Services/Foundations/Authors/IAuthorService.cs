@@ -15,6 +15,6 @@ namespace PlanetDotnet.Services.Foundations.Authors
         IEnumerable<IAmACommunityMember> RetrieveAllAuthers();
 
         string RetrieveAuthorImage(IAmACommunityMember author);
-        ValueTask PostFeedsAsync();
+        void PostFeeds();
     }
 }
