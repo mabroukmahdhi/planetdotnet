@@ -19,6 +19,8 @@ namespace PlanetDotnet.Views.Bases.Headers
         public RenderFragment Right { get; set; }
 
         public SharpStyle Styles { get; set; }
+
+        public string Direction => Localizer.IsRightToLeft ? "rtl" : "ltr";
         protected override void OnInitialized()
         {
             SetupStyles();

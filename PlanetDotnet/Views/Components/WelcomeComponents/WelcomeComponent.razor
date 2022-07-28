@@ -63,7 +63,7 @@
     @if (WelcomeView.Podcasts != null && WelcomeView.Podcasts.Count() > 0)
     {
         <hr />
-        <h1>.NET Podcasts, Shows, Newsletters & Open-source Software</h1>
+        <h1>@Localizer["PODCASTS_TITLE"]</h1>
         <p>
             @foreach (var podcast in WelcomeView.Podcasts)
             {
