@@ -6,6 +6,7 @@
 
 using PlanetDotnet.Models.Foundations.Abstractions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Foundations.Authors
 {
@@ -14,5 +15,6 @@ namespace PlanetDotnet.Services.Foundations.Authors
         IEnumerable<IAmACommunityMember> RetrieveAllAuthers();
 
         string RetrieveAuthorImage(IAmACommunityMember author);
+        ValueTask PostFeedsAsync();
     }
 }

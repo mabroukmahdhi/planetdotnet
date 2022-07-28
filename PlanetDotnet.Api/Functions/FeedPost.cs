@@ -16,12 +16,25 @@ namespace PlanetDotnet.Api.Functions
     {
         [FunctionName("FeedPost")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "feed")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "feed")] HttpRequest req,
             ILogger log)
         {
             try
             {
                 log.LogInformation("LoadFeeds function processed a request.");
+
+                var filePath = Path.Combine(Path.GetTempPath(), "feed.xml");
+
+                string xmlFeed = string.Empty;
+
+                if (req.Method == HttpMethods.Get)
+                {
+                    if (!File.Exists(filePath))
+                        return new NotFoundResult();
+
+                    xmlFeed = File.ReadAllText(filePath);
+                    return new OkObjectResult(xmlFeed);
+                }
 
                 using StreamReader streamReader = new(req.Body);
                 var requestBody = await streamReader.ReadToEndAsync();
@@ -30,9 +43,11 @@ namespace PlanetDotnet.Api.Functions
 
                 var feedService = new FeedService();
 
-                string xmlFeed = await feedService.CreateAndLoadFeedAsync(feedRequest);
+                xmlFeed = await feedService.CreateAndLoadFeedAsync(feedRequest);
 
-                return new OkObjectResult(xmlFeed);
+                File.WriteAllText(filePath, xmlFeed);
+
+                return new OkResult();
             }
             catch (Exception ex)
             {

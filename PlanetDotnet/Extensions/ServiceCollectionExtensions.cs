@@ -10,6 +10,7 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PlanetDotnet.Brokers.Apis;
 using PlanetDotnet.Brokers.Authors;
 using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
@@ -40,6 +41,7 @@ namespace PlanetDotnet.Extensions
             services.AddBlazoredLocalStorage();
             services.AddScoped<ILocalizationBroker, LocalizationBroker>();
             services.AddScoped<INavigationBroker, NavigationBroker>();
+            services.AddScoped<IApiBroker, ApiBroker>();
         }
 
         public static void AddServices(this IServiceCollection services)
