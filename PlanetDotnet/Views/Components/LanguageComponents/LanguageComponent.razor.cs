@@ -24,7 +24,9 @@ namespace PlanetDotnet.Views.Components.LanguageComponents
         private void CultureChanged(ChangeEventArgs args)
         {
             var selected = args.Value.ToString();
-            this.Localizer.SetCurrentCultureAsnyc(selected);
+            this.Localizer.SetCurrentCultureAsnyc(
+                culture: selected,
+                reloadPage: true);
         }
 
     }

@@ -1,4 +1,6 @@
 ﻿@using PlanetDotnet.Models.Foundations.Tags
+@using PlanetDotnet.Views.Bases.Styles
+@using PlanetDotnet.Views.Components.TagComponents
 @if (ProfileView != null)
 {
     <div class="col-md-4 profileCard" id="@ProfileView.Id">
@@ -16,19 +18,8 @@
                 @ProfileView.Description
             </p>
 
-            <p class="tags">
-
-                @if (ProfileView.Tags != null)
-                {
-                    @foreach (var tag in ProfileView.Tags)
-                    {
-                        <span class="badge badge-info">@tag</span>
-                    }
-                }
-                else
-                {
-                    <span class="badge badge-info">@Tag.Default</span>
-                }
+            <p>
+                <TagComponent Tags=@ProfileView.Tags />
             </p>
 
             <p class="location">
@@ -40,9 +31,3 @@
         </div>
     </div>
 }
-
-<style>
-    span + span {
-        margin-left: 5px;
-    }
-</style>

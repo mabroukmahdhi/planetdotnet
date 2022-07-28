@@ -1,4 +1,6 @@
 ﻿@using PlanetDotnet.Models.Foundations.Tags
+@using PlanetDotnet.Views.Bases.Styles
+@using PlanetDotnet.Views.Components.TagComponents
 @if (PodcastView != null)
 {
     <div class="col-md-4 profileCard" id="@PodcastView.Id">
@@ -16,19 +18,8 @@
                 @PodcastView.Description
             </p>
 
-            <p class="tags">
-
-                @if (PodcastView.Tags != null)
-                {
-                    @foreach (var tag in PodcastView.Tags)
-                    {
-                        <span class="badge badge-info">@tag</span>
-                    }
-                }
-                else
-                {
-                    <span class="badge badge-info">@Tag.Default</span>
-                }
+             <p>
+                <TagComponent Tags=@PodcastView.Tags />
             </p>
 
             <p class="website">
@@ -36,10 +27,4 @@
             </p>
         </div>
     </div>
-}
-
-<style>
-    span + span {
-        margin-left: 5px;
-    }
-</style>
+} 

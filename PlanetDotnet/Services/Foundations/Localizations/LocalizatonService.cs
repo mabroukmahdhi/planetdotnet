@@ -6,6 +6,7 @@
 
 using Blazored.LocalStorage;
 using PlanetDotnet.Brokers.Localizations;
+using PlanetDotnet.Brokers.Navigations;
 using System;
 using System.Globalization;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace PlanetDotnet.Services.Foundations.Localizations
     public class LocalizatonService : ILocalizatonService
     {
         private readonly ILocalizationBroker localizationBroker;
+        private readonly INavigationBroker navigationBroker;
         private readonly ILocalStorageService localStorageService;
 
         private const string ArabicKey = "ar";
@@ -22,9 +24,11 @@ namespace PlanetDotnet.Services.Foundations.Localizations
 
         public LocalizatonService(
             ILocalizationBroker localizationBroker,
+            INavigationBroker navigationBroker,
             ILocalStorageService localStorageService)
         {
             this.localizationBroker = localizationBroker;
+            this.navigationBroker = navigationBroker;
             this.localStorageService = localStorageService;
         }
 
@@ -38,11 +42,21 @@ namespace PlanetDotnet.Services.Foundations.Localizations
                ArabicKey,
                StringComparison.OrdinalIgnoreCase);
 
-        public async ValueTask SetCurrentCultureAsnyc(string culture)
+        public async ValueTask SetCurrentCultureAsnyc(
+            string culture,
+            bool reloadPage = false)
         {
-            await localStorageService.RemoveItemAsync(CurrentCultureKey);
+            await localStorageService.RemoveItemAsync(
+                CurrentCultureKey);
 
-            await this.localStorageService.SetItemAsync(CurrentCultureKey, culture);
+            await this.localStorageService.SetItemAsync(
+                key: CurrentCultureKey,
+                data: culture);
+
+            if (reloadPage)
+            {
+                this.navigationBroker.BackToHome();
+            }
         }
 
         public async ValueTask<string> GetCurrentCultureAsnyc() =>
