@@ -32,8 +32,7 @@ namespace PlanetDotnet.Api.Functions
                     if (!File.Exists(filePath))
                         return new NotFoundResult();
 
-                    xmlFeed = File.ReadAllText(filePath);
-                    return new OkObjectResult(xmlFeed);
+                    return new PhysicalFileResult(filePath, "application/rss+xml");
                 }
 
                 using StreamReader streamReader = new(req.Body);
