@@ -4,17 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
-using System.Collections.Generic;
+using PlanetDotnet.Models.Apis.FeedRequests;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Services.Foundations.Authors
+namespace PlanetDotnet.Brokers.Apis
 {
-    public interface IAuthorService
+    public partial interface IApiBroker
     {
-        IEnumerable<IAmACommunityMember> RetrieveAllAuthers();
-
-        string RetrieveAuthorImage(IAmACommunityMember author);
-        void PostFeeds();
+        ValueTask PostFeedAsync(FeedRequest feedRequest);
+        ValueTask<string> GetFeedAsync();
     }
 }
