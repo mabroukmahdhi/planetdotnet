@@ -11,6 +11,8 @@ using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Models.Apis.FeedRequests;
 using PlanetDotnet.Models.Foundations.Abstractions;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Foundations.Authors
@@ -49,14 +51,33 @@ namespace PlanetDotnet.Services.Foundations.Authors
 
         public async ValueTask PostFeedsAsync()
         {
-           var authors = this.authorBroker.SelectAllAuthers();
+            var authors = this.authorBroker.SelectAllAuthers();
 
-            var feedRequest = new FeedRequest
+            var feedRquest = new FeedRequest
             {
-                
+                Authors = GenerateAuthorInfos(authors),
+                MaxItems = 0,
+                FeedLanguage = "mixed",
+                Tags = new List<string>()
             };
 
-            await this.apiBroker.PostFeedAsync(null);
+            await this.apiBroker.PostFeedAsync(feedRquest);
+        }
+
+        private static IEnumerable<AuthorInfo> GenerateAuthorInfos(
+            IEnumerable<IAmACommunityMember> authors)
+        {
+            foreach (var author in authors)
+            {
+                yield return new AuthorInfo
+                {
+                    FullName = $"{author.FirstName} {author.LastName}",
+                    Email = author.EmailAddress,
+                    FeedUris = author.FeedUris?.Select(f => f.ToString()),
+                    Language = author.FeedLanguageCode,
+                    WebSite = author.WebSite.ToString()
+                };
+            }
         }
     }
 }

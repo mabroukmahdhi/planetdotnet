@@ -60,7 +60,7 @@ namespace PlanetDotnet.Extensions
             builder.ConfigureContainer(new AutofacServiceProviderFactory(ConfigureContainer));
         }
 
-        public static async Task SetDefaultCulture(
+        public static async ValueTask SetDefaultCulture(
             this IServiceProvider services)
         {
             var localizatonService =
@@ -82,6 +82,14 @@ namespace PlanetDotnet.Extensions
                 new CultureInfo(culture);
         }
 
+        public static async ValueTask PostFeedsAsync(
+                   this IServiceProvider services)
+        {
+            var authorService =
+                 services.GetRequiredService<IAuthorService>();
+
+            await authorService.PostFeedsAsync();
+        }
 
         private static void ConfigureContainer(ContainerBuilder builder)
         {
