@@ -4,6 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using System;
+
 namespace PlanetDotnet.Models.Foundations.Configurations
 {
     public class LocalConfigurations
@@ -17,6 +19,8 @@ namespace PlanetDotnet.Models.Foundations.Configurations
         public string GithubRepository { get; set; }
         public string AuthorsPagePath { get; set; }
         public string FeedPagePath { get; set; }
+        public string FeedApiUrl { get; set; }
         public string BadgeImagePath { get; set; }
+        public string FeedFilePath { get; set; }
     }
 }

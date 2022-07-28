@@ -4,11 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Brokers.Navigations
+using PlanetDotnet.Models.Foundations.Abstractions;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace PlanetDotnet.Brokers.Feeds
 {
-    public interface INavigationBroker
+    public interface IFeedBroker
     {
-        void NavigateTo(string url);
-        void BackToHome();
+        ValueTask CeateFeedFileAsync(IEnumerable<IAmACommunityMember> authors);
     }
 }

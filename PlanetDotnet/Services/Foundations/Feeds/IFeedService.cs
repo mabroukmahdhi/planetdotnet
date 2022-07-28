@@ -4,11 +4,12 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Brokers.Navigations
+using System.Threading.Tasks;
+
+namespace PlanetDotnet.Services.Foundations.Feeds
 {
-    public interface INavigationBroker
+    public interface IFeedService
     {
-        void NavigateTo(string url);
-        void BackToHome();
+        ValueTask NavigateToFeedsAsync();
     }
 }

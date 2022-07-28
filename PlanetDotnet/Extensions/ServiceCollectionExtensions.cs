@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlanetDotnet.Brokers.Authors;
+using PlanetDotnet.Brokers.Feeds;
 using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
@@ -40,6 +41,7 @@ namespace PlanetDotnet.Extensions
             services.AddBlazoredLocalStorage();
             services.AddScoped<ILocalizationBroker, LocalizationBroker>();
             services.AddScoped<INavigationBroker, NavigationBroker>();
+            services.AddScoped<IFeedBroker, FeedBroker>();
         }
 
         public static void AddServices(this IServiceCollection services)

@@ -19,5 +19,8 @@ namespace PlanetDotnet.Brokers.Navigations
             this.navigationManager.NavigateTo(
                 uri: "/",
                 forceLoad: true);
+
+        public void NavigateTo(string url) =>
+            this.navigationManager.NavigateTo(url);
     }
 }
