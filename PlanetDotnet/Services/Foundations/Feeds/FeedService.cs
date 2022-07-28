@@ -19,6 +19,7 @@ namespace PlanetDotnet.Services.Foundations.Feeds
         private readonly IAuthorBroker authorBroker;
         private readonly INavigationBroker navigationBroker;
         private readonly LocalConfigurations localConfigurations;
+
         public FeedService(
             IFeedBroker feedBroker,
             IAuthorBroker authorBroker,
