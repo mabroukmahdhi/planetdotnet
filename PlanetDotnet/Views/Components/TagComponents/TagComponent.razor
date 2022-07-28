@@ -1,0 +1,15 @@
+﻿@using PlanetDotnet.Models.Foundations.Tags
+@using PlanetDotnet.Views.Bases.Styles
+@if (Tags != null)
+{
+    @foreach (var tag in Tags)
+    {
+        <span class="badge badge-info tag-span">@tag</span>
+    }
+}
+else
+{
+    <span class="badge badge-info tag-span">@Tag.Default</span>
+}
+
+<StyleBase Style=@Style />

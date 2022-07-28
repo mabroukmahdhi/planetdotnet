@@ -1,0 +1,30 @@
+﻿@using PlanetDotnet.Models.Foundations.Tags
+@using PlanetDotnet.Views.Bases.Styles
+@using PlanetDotnet.Views.Components.TagComponents
+@if (PodcastView != null)
+{
+    <div class="col-md-4 profileCard" id="@PodcastView.Id">
+        <img class="mugShot" src="@PodcastView.Avatar" alt="@PodcastView.FullName" />
+        <div class="mugShotBorder">
+        </div>
+        <div class="profileCardWrapper">
+
+            <p class="name">@PodcastView.FullName</p>
+            <p class="twitter">
+                <a href="https://twitter.com/@PodcastView.TwitterHandle">@@@PodcastView.TwitterHandle</a>
+            </p>
+
+            <p class="description">
+                @PodcastView.Description
+            </p>
+
+             <p>
+                <TagComponent Tags=@PodcastView.Tags />
+            </p>
+
+            <p class="website">
+                <a href="@(PodcastView.WebSite)" title="@PodcastView.WebSite">@PodcastView.WebSite</a>
+            </p>
+        </div>
+    </div>
+} 

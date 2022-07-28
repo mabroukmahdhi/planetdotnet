@@ -14,11 +14,14 @@ using PlanetDotnet.Brokers.Authors;
 using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
+using PlanetDotnet.Brokers.Navigations;
 using PlanetDotnet.Services.Foundations.Authors;
 using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
 using PlanetDotnet.Services.Views.MapViews;
+using PlanetDotnet.Services.Views.Podcasts;
+using PlanetDotnet.Services.Views.Welcomes;
 using System;
 using System.Globalization;
 using System.Reflection;
@@ -36,6 +39,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<ILoggingBroker, LoggingBroker>();
             services.AddBlazoredLocalStorage();
             services.AddScoped<ILocalizationBroker, LocalizationBroker>();
+            services.AddScoped<INavigationBroker, NavigationBroker>();
         }
 
         public static void AddServices(this IServiceCollection services)
@@ -45,6 +49,8 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IProfileViewService, ProfileViewService>();
             services.AddScoped<IAuthorListViewService, AuthorListViewService>();
             services.AddScoped<IMapViewService, MapViewService>();
+            services.AddScoped<IPodcastViewService, PodcastViewService>();
+            services.AddScoped<IWelcomeViewService, WelcomeViewService>();
         }
 
         public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)

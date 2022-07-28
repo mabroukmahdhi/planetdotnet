@@ -4,8 +4,12 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Abstractions
+using PlanetDotnet.Models.Views.Welcomes;
+
+namespace PlanetDotnet.Services.Views.Welcomes
 {
-    public interface IAmAMicrosoftMVP : IAmACommunityMember
-    { }
+    public interface IWelcomeViewService
+    {
+        WelcomeView InitializeWelcomeView();
+    }
 }

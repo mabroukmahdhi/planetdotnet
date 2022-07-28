@@ -4,19 +4,20 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Configurations
+using PlanetDotnet.Models.Foundations.Abstractions;
+using System.Collections.Generic;
+
+namespace PlanetDotnet.Models.Views.Welcomes
 {
-    public class LocalConfigurations
+    public class WelcomeView
     {
-        public string BaseAddress { get; set; }
-        public string DefaultGravatarImage { get; set; }
-        public int DefaultGravatarImageSize { get; set; }
-        public string PreviewPagePath { get; set; }
         public string TwitterLink { get; set; }
         public string FacebookLink { get; set; }
-        public string GithubRepository { get; set; }
+        public string FeedLink { get; set; }
+        public string PreviewPagePath { get; set; }
         public string AuthorsPagePath { get; set; }
-        public string FeedPagePath { get; set; }
+        public string GithubRepository { get; set; }
         public string BadgeImagePath { get; set; }
+        public IEnumerable<IAmACommunityMember> Podcasts { get; set; }
     }
 }

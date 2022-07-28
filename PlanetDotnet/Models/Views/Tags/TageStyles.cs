@@ -4,8 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Abstractions
+using SharpStyles.Models;
+using SharpStyles.Models.Attributes;
+
+namespace PlanetDotnet.Models.Views.Tags
 {
-    public interface IAmAMicrosoftMVP : IAmACommunityMember
-    { }
+    public class TageStyles : SharpStyle
+    {
+        [CssClass]
+        public SharpStyle TagSpan { get; set; }
+    }
 }

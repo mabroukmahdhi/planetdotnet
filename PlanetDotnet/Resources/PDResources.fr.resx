@@ -117,14 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ALREADY_AUTHOR" xml:space="preserve">
+    <value>Déjà auteur ?</value>
+  </data>
+  <data name="ALREADY_AUTHOR_BODY" xml:space="preserve">
+    <value>Vous pouvez montrer au monde en incorporant ce badge dans votre blog. Si vous aviez le lien vers nous, ce serait totalement génial !</value>
+  </data>
+  <data name="ALREADY_AUTHOR_SUBTITLE" xml:space="preserve">
+    <value>Super! C'est bien de vous avoir à bord !</value>
+  </data>
   <data name="APP_TITLE" xml:space="preserve">
     <value>Planète .NET</value>
   </data>
   <data name="AUTHORS" xml:space="preserve">
-    <value>Auteures</value>
+    <value>Auteur(e)s</value>
   </data>
   <data name="AUTHORS_ALERT" xml:space="preserve">
     <value>L'ordre est aléatoire. Actualiser pour mélanger.</value>
+  </data>
+  <data name="AUTHORS_OPINION" xml:space="preserve">
+    <value>Avis des auteurs</value>
+  </data>
+  <data name="AUTHORS_OPINION_1" xml:space="preserve">
+    <value>Nous sommes fiers de la diversité de pensée - notre force réside dans nos expériences de points de vue collectifs uniques.</value>
+  </data>
+  <data name="AUTHORS_OPINION_2" xml:space="preserve">
+    <value>Nous aimons partager cette diversité avec la communauté, et nous ne censurons ni ne curons ces blogs - ils représentent les opinions des auteurs.</value>
+  </data>
+  <data name="AUTHORS_OPINION_3" xml:space="preserve">
+    <value>Nous fournissons un &lt;a href="{0}"&gt;moyen d'activer le contenu qui sera syndiqué&lt;/a&gt; et encourageons les auteurs à l'utiliser.</value>
+  </data>
+  <data name="CAN_I_READ_HERE" xml:space="preserve">
+    <value>Puis-je simplement le lire ici?</value>
+  </data>
+  <data name="CAN_I_READ_HERE_BODY" xml:space="preserve">
+    <value>Vous pouvez, mais nous ne voulons pas rediriger le trafic des sites individuels de nos collaborateurs. Voici un &lt;a href="{0}"&gt;aperçu&lt;/a&gt; au cas où vous essaieriez toujours de vous abonner.</value>
   </data>
   <data name="FACEBOOK" xml:space="preserve">
     <value>Facebook</value>
@@ -135,10 +162,40 @@
   <data name="HOME" xml:space="preserve">
     <value>Accueil</value>
   </data>
+  <data name="PODCASTS_TITLE" xml:space="preserve">
+    <value>Podcasts .NET, émissions, newsletters et logiciels open source</value>
+  </data>
+  <data name="READ_IN" xml:space="preserve">
+    <value>Lire dans une autre langue :</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>Recherche par nom d'auteur et ètiquette...</value>
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>Twitter</value>
+  </data>
+  <data name="WELCOME_INTRO" xml:space="preserve">
+    <value>Nous sommes un agrégateur de contenu des membres de la communauté .NET. Pourquoi vous abonner individuellement lorsque vous pouvez vous abonner à un flux RSS pratique, pour voir tout le contenu généré par les membres de la communauté dans votre lecteur de nouvelles. Si RSS n'est pas votre truc, suivez nos comptes &lt;a href="{0}"&gt;Twitter&lt;/a&gt; et &lt;a href="{1}"&gt;Facebook&lt;/a&gt; qui sont automatiquement mis à jour avec le dernier contenu de la communauté.</value>
+  </data>
+  <data name="WELCOME_SUBTITLE" xml:space="preserve">
+    <value>Bonjour et bienvenue sur Planet .NET !</value>
+  </data>
+  <data name="WELCOME_TITLE" xml:space="preserve">
+    <value>Bienvenues!</value>
+  </data>
+  <data name="WHERE_IS_FEED" xml:space="preserve">
+    <value>Où est le flux ? !</value>
+  </data>
+  <data name="WHERE_IS_FEED_BODY" xml:space="preserve">
+    <value>Pointez votre lecteur RSS vers cette page et il la trouvera ; ou abonnez-vous &lt;a href="{0}"&gt;au flux manuellement&lt;/a&gt;.</value>
+  </data>
+  <data name="WHO_ARE_YOU" xml:space="preserve">
+    <value>Qui êtes-vous ?</value>
+  </data>
+  <data name="WHO_ARE_YOU_BODY" xml:space="preserve">
+    <value>Nous sommes membres de la communauté ! &lt;br /&gt;Vous pouvez en savoir plus &lt;a href="{0}"&gt;sur nous ici&lt;/a&gt;.</value>
+  </data>
+  <data name="XAMARIN_PLANET_THANKS" xml:space="preserve">
+    <value>Un grand merci à la &lt;a href="https://www.planetxamarin.com/"&gt;Planète Xamarin&lt;/a&gt; pour ce superbe template !</value>
   </data>
 </root>

@@ -1,0 +1,74 @@
+﻿@using PlanetDotnet.Views.Components.LanguageComponents
+@using PlanetDotnet.Views.Components.PodcastComponents
+@if (WelcomeView != null)
+{
+    <h1>@Localizer["WELCOME_TITLE"]</h1>
+    <p>@Localizer["WELCOME_SUBTITLE"]</p>
+    <p>
+        @((MarkupString)
+            (string.Format(Localizer["WELCOME_INTRO"],
+            WelcomeView.TwitterLink,
+            WelcomeView.FacebookLink)))
+    </p>
+    <p>
+        @((MarkupString)Localizer["XAMARIN_PLANET_THANKS"])
+    </p> 
+    <p>
+        @Localizer["READ_IN"]
+        <LanguageComponent /> 
+    </p>
+    <hr />
+    <div class="leader row text-center">
+        <div class="col-md-4">
+            <i class="fa fa-rss"></i>
+            <h1>@Localizer["WHERE_IS_FEED"]</h1>
+            <p>
+                @((MarkupString)(string.Format(Localizer["WHERE_IS_FEED_BODY"], WelcomeView.FeedLink)))
+            </p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-book"></i>
+            <h1>@Localizer["CAN_I_READ_HERE"]</h1>
+            <p>
+                @((MarkupString)(string.Format(Localizer["CAN_I_READ_HERE_BODY"], WelcomeView.PreviewPagePath)))
+            </p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-users"></i>
+            <h1>@Localizer["WHO_ARE_YOU"]</h1>
+            <p>
+                @((MarkupString)(string.Format(Localizer["WHO_ARE_YOU_BODY"], WelcomeView.AuthorsPagePath)))
+            </p>
+        </div>
+    </div>
+
+    <hr />
+
+    <h2>@Localizer["AUTHORS_OPINION"]</h2>
+    <p>
+        <ol>
+            <li>@Localizer["AUTHORS_OPINION_1"]</li>
+            <li>@Localizer["AUTHORS_OPINION_2"]</li>
+            <li>@((MarkupString)string.Format(Localizer["AUTHORS_OPINION_3"], WelcomeView.GithubRepository))</li>
+        </ol>
+    </p>
+    <hr />
+    <h1>@Localizer["ALREADY_AUTHOR"]</h1>
+    <p>@Localizer["ALREADY_AUTHOR_SUBTITLE"]</p>
+    <p>
+       @Localizer["ALREADY_AUTHOR_BODY"]
+       </p>
+    <img class="featuredbadge" src="@WelcomeView.BadgeImagePath" alt="Planet .NET Author badge" />
+
+    @if (WelcomeView.Podcasts != null && WelcomeView.Podcasts.Count() > 0)
+    {
+        <hr />
+        <h1>@Localizer["PODCASTS_TITLE"]</h1>
+        <p>
+            @foreach (var podcast in WelcomeView.Podcasts)
+            {
+                <PodcastComponent Member="podcast" />
+            }
+        </p>
+    }
+}

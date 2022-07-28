@@ -6,7 +6,7 @@ namespace PlanetDotnet.Services.Foundations.Localizations
     {
         string this[string key] { get; }
         bool IsRightToLeft { get; }
-        ValueTask SetCurrentCultureAsnyc(string culture);
+        ValueTask SetCurrentCultureAsnyc(string culture, bool reloadPage = false);
         ValueTask DeleteCurrentCultureAsnyc();
         ValueTask<string> GetCurrentCultureAsnyc();
     }

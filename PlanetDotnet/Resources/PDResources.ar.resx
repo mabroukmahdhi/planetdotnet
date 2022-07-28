@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ALREADY_AUTHOR" xml:space="preserve">
+    <value>هل أنت مدونٌ فعليا؟</value>
+  </data>
+  <data name="ALREADY_AUTHOR_BODY" xml:space="preserve">
+    <value>يمكنك التباهي أمام العالم من خلال دمج هذه الشارة في مدونتك. إذا كان لديك رابط للعودة إلينا ، فسيكون ذلك رائعًا تمامًا!</value>
+  </data>
+  <data name="ALREADY_AUTHOR_SUBTITLE" xml:space="preserve">
+    <value>عظيم! سعيدون بإنضمامك...</value>
+  </data>
   <data name="APP_TITLE" xml:space="preserve">
     <value>كوكب .NET</value>
   </data>
@@ -125,6 +134,24 @@
   </data>
   <data name="AUTHORS_ALERT" xml:space="preserve">
     <value>الترتيب عشوائي. تحديث للتبديل.</value>
+  </data>
+  <data name="AUTHORS_OPINION" xml:space="preserve">
+    <value>آراء المدونين</value>
+  </data>
+  <data name="AUTHORS_OPINION_1" xml:space="preserve">
+    <value>نحن نفخر بتنوع الأفكار - قوتنا تكمن في تجارب وجهات النظر الجماعية الفريدة لدينا</value>
+  </data>
+  <data name="AUTHORS_OPINION_2" xml:space="preserve">
+    <value>نحن نحب مشاركة هذا التنوع مع المجتمع ، ولا نقوم بمراقبة أو تنظيم هذه المدونات - فهي تمثل آراء المؤلفين.</value>
+  </data>
+  <data name="AUTHORS_OPINION_3" xml:space="preserve">
+    <value>نحن نقدم &lt;a href="{0}"&gt; طريقة لتمكين المحتوى الذي يتم نشره &lt;/a&gt; ونشجع المؤلفين على استخدامه.</value>
+  </data>
+  <data name="CAN_I_READ_HERE" xml:space="preserve">
+    <value>هل يمكنني قراءته هنا؟</value>
+  </data>
+  <data name="CAN_I_READ_HERE_BODY" xml:space="preserve">
+    <value>يمكنك ذلك ، لكننا لا نريد إعادة توجيه حركة المرور من مواقع الأفراد الخاصة بنا. إليك &lt;a href="{0}"&gt; نظرة سريعة &lt;/a&gt; في حال كنت لا تزال تحاول الاشتراك.</value>
   </data>
   <data name="FACEBOOK" xml:space="preserve">
     <value>فيسبوك</value>
@@ -135,10 +162,40 @@
   <data name="HOME" xml:space="preserve">
     <value>الاستقبال</value>
   </data>
+  <data name="PODCASTS_TITLE" xml:space="preserve">
+    <value>منوعات وأخبار وبرمجيات مفتوحة المصدر</value>
+  </data>
+  <data name="READ_IN" xml:space="preserve">
+    <value>اقرأ بلغة أخرى:</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>البحث عن اسم المدوّن ...</value>
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>تويتر</value>
+  </data>
+  <data name="WELCOME_INTRO" xml:space="preserve">
+    <value>نحن مجمعون للمحتوى من أعضاء مجتمع .NET. لماذا الاشتراك بشكل فردي عندما يمكنك الاشتراك في موجز RSS واحد مناسب ، لمشاهدة كل المحتوى الذي تم إنشاؤه بواسطة أعضاء المجتمع في قارئ الأخبار الخاص بك. إذا لم يكن RSS هو الشيء المفضل لديك ، فاتبع حساباتنا على &lt;a href="{0}"&gt; Twitter &lt;/a&gt; أو &lt;a href="{1}"&gt; Facebook &lt;/a&gt; والتي يتم تحديثها تلقائيًا بأحدث محتوى من المجتمع.</value>
+  </data>
+  <data name="WELCOME_SUBTITLE" xml:space="preserve">
+    <value>أهلاً ومرحبًا بكم في Planet .NET!</value>
+  </data>
+  <data name="WELCOME_TITLE" xml:space="preserve">
+    <value>أهلا وسهلا!</value>
+  </data>
+  <data name="WHERE_IS_FEED" xml:space="preserve">
+    <value>أين الخلاصة ؟!</value>
+  </data>
+  <data name="WHERE_IS_FEED_BODY" xml:space="preserve">
+    <value>وجه قارئ RSS إلى هذه الصفحة وسيجدها ؛ أو اشترك في &lt;a href="{0}"&gt; الخلاصة يدويًا &lt;/a&gt;.</value>
+  </data>
+  <data name="WHO_ARE_YOU" xml:space="preserve">
+    <value>من نحن؟</value>
+  </data>
+  <data name="WHO_ARE_YOU_BODY" xml:space="preserve">
+    <value>نحن أعضاء المجتمع! &lt;br /&gt; يمكنك قراءة المزيد &lt;a href="{0}"&gt; عنا هنا &lt;/a&gt;.</value>
+  </data>
+  <data name="XAMARIN_PLANET_THANKS" xml:space="preserve">
+    <value>شكرًا جزيلاً &lt;a href="https://www.planetxamarin.com/"&gt; Planet Xamarin &lt;/a&gt; على هذا النموذج الرائع!</value>
   </data>
 </root>

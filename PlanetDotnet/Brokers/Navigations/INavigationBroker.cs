@@ -4,8 +4,10 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Models.Foundations.Abstractions
+namespace PlanetDotnet.Brokers.Navigations
 {
-    public interface IAmAMicrosoftMVP : IAmACommunityMember
-    { }
+    public interface INavigationBroker
+    {
+        void BackToHome();
+    }
 }
