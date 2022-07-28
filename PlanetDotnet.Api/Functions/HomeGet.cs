@@ -11,7 +11,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Api
+namespace PlanetDotnet.Api.Functions
 {
     public static class HomeGet
     {

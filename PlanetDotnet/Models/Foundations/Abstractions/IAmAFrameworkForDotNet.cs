@@ -7,6 +7,5 @@
 namespace PlanetDotnet.Models.Foundations.Abstractions
 {
     public interface IAmAFrameworkForDotNet : IAmACommunityMember
-    {
-    }
+    { }
 }

@@ -10,7 +10,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Api
+namespace PlanetDotnet.Api.Functions
 {
     public static class FeedPost
     {

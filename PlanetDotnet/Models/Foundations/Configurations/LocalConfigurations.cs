@@ -8,6 +8,7 @@ namespace PlanetDotnet.Models.Foundations.Configurations
 {
     public class LocalConfigurations
     {
+        public string BaseAddress { get; set; }
         public string DefaultGravatarImage { get; set; }
         public int DefaultGravatarImageSize { get; set; }
         public string PreviewPagePath { get; set; }

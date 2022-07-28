@@ -12,7 +12,7 @@ using PlanetDotnet.Models.Foundations.Tags;
 
 namespace PlanetDotnet.Models.Foundations.Authors
 {
-    public class TheXamarinPodcast : IAmACommunityMember, IAmAPodcast
+    public class TheXamarinPodcast :  IAmAPodcast
     {
         public string FirstName => "The .NET MAUI";
         public string LastName => "Podcast";
