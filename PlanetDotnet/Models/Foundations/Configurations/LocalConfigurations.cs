@@ -10,5 +10,12 @@ namespace PlanetDotnet.Models.Foundations.Configurations
     {
         public string DefaultGravatarImage { get; set; }
         public int DefaultGravatarImageSize { get; set; }
+        public string PreviewPagePath { get; set; }
+        public string TwitterLink { get; set; }
+        public string FacebookLink { get; set; }
+        public string GithubRepository { get; set; }
+        public string AuthorsPagePath { get; set; }
+        public string FeedPagePath { get; set; }
+        public string BadgeImagePath { get; set; }
     }
 }
