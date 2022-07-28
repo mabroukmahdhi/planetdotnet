@@ -1,4 +1,5 @@
-﻿@using PlanetDotnet.Views.Components.PodcastComponents
+﻿@using PlanetDotnet.Views.Components.LanguageComponents
+@using PlanetDotnet.Views.Components.PodcastComponents
 @if (WelcomeView != null)
 {
     <h1>@Localizer["WELCOME_TITLE"]</h1>
@@ -11,6 +12,10 @@
     </p>
     <p>
         @((MarkupString)Localizer["XAMARIN_PLANET_THANKS"])
+    </p> 
+    <p>
+        @Localizer["READ_IN"]
+        <LanguageComponent /> 
     </p>
     <hr />
     <div class="leader row text-center">

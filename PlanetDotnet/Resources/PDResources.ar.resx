@@ -165,6 +165,9 @@
   <data name="PODCASTS_TITLE" xml:space="preserve">
     <value>برامج .NET Podcasts والعروض والرسائل الإخبارية والبرامج مفتوحة المصدر</value>
   </data>
+  <data name="READ_IN" xml:space="preserve">
+    <value>اقرأ بلغة أخرى:</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>البحث عن اسم المدوّن ...</value>
   </data>

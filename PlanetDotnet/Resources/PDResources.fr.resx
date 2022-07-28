@@ -165,6 +165,9 @@
   <data name="PODCASTS_TITLE" xml:space="preserve">
     <value>Podcasts .NET, émissions, newsletters et logiciels open source</value>
   </data>
+  <data name="READ_IN" xml:space="preserve">
+    <value>Lire dans une autre langue :</value>
+  </data>
   <data name="SEARCH" xml:space="preserve">
     <value>Recherche par nom d'auteur et ètiquette...</value>
   </data>

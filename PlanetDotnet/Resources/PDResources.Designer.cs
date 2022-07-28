@@ -205,6 +205,15 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read in other language:.
+        /// </summary>
+        public static string READ_IN {
+            get {
+                return ResourceManager.GetString("READ_IN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search on author name and tag....
         /// </summary>
         public static string SEARCH {

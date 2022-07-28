@@ -38,8 +38,12 @@ namespace PlanetDotnet.Services.Foundations.Localizations
                ArabicKey,
                StringComparison.OrdinalIgnoreCase);
 
-        public async ValueTask SetCurrentCultureAsnyc(string culture) =>
+        public async ValueTask SetCurrentCultureAsnyc(string culture)
+        {
+            await localStorageService.RemoveItemAsync(CurrentCultureKey);
+
             await this.localStorageService.SetItemAsync(CurrentCultureKey, culture);
+        }
 
         public async ValueTask<string> GetCurrentCultureAsnyc() =>
             await this.localStorageService.GetItemAsync<string>(CurrentCultureKey);
