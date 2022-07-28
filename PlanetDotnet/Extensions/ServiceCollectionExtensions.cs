@@ -14,6 +14,7 @@ using PlanetDotnet.Brokers.Authors;
 using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
+using PlanetDotnet.Brokers.Navigations;
 using PlanetDotnet.Services.Foundations.Authors;
 using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
@@ -38,6 +39,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<ILoggingBroker, LoggingBroker>();
             services.AddBlazoredLocalStorage();
             services.AddScoped<ILocalizationBroker, LocalizationBroker>();
+            services.AddScoped<INavigationBroker, NavigationBroker>();
         }
 
         public static void AddServices(this IServiceCollection services)
