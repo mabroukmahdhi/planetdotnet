@@ -196,6 +196,15 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .NET Podcasts, Shows, Newsletters &amp; Open-source Software.
+        /// </summary>
+        public static string PODCASTS_TITLE {
+            get {
+                return ResourceManager.GetString("PODCASTS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search on author name and tag....
         /// </summary>
         public static string SEARCH {
