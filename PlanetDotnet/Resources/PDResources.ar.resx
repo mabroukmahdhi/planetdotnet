@@ -129,6 +129,9 @@
   <data name="FACEBOOK" xml:space="preserve">
     <value>فيسبوك</value>
   </data>
+  <data name="FOOTER_TEXT" xml:space="preserve">
+    <value>هل تدون حول NET؟ أضف نفسك إلى المجمّع بإرسال &lt;a href="https://github.com/mabroukmahdhi/planetdotnet"&gt; طلب سحب إلى مستودعنا &lt;/a&gt; على GitHub. لا ينتمي Planet .NET إلى Microsoft وهو مشروع مفتوح المصدر يديره المجتمع من أجل المجتمع.</value>
+  </data>
   <data name="HOME" xml:space="preserve">
     <value>الاستقبال</value>
   </data>

@@ -97,6 +97,15 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you blog about .NET? Add yourself to the aggregator by sending in a &lt;a href=&quot;https://github.com/mabroukmahdhi/planetdotnet&quot;&gt;pull-request to our repository&lt;/a&gt; on GitHub. Planet .NET is not affiliated with Microsoft and is a open-source project maintained by the community for the community..
+        /// </summary>
+        public static string FOOTER_TEXT {
+            get {
+                return ResourceManager.GetString("FOOTER_TEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string HOME {
@@ -106,7 +115,7 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search on author name....
+        ///   Looks up a localized string similar to Search on author name and tag....
         /// </summary>
         public static string SEARCH {
             get {

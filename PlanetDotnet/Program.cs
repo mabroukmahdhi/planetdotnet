@@ -29,4 +29,8 @@ builder.Services.AddScoped(sp =>
             ?? builder.HostEnvironment.BaseAddress)
     });
 
-await builder.Build().RunAsync();
+var host = builder.Build();
+
+await host.Services.SetDefaultCulture();
+
+await host.RunAsync();

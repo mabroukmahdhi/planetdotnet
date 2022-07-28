@@ -129,11 +129,14 @@
   <data name="FACEBOOK" xml:space="preserve">
     <value>Facebook</value>
   </data>
+  <data name="FOOTER_TEXT" xml:space="preserve">
+    <value>Do you blog about .NET? Add yourself to the aggregator by sending in a &lt;a href="https://github.com/mabroukmahdhi/planetdotnet"&gt;pull-request to our repository&lt;/a&gt; on GitHub. Planet .NET is not affiliated with Microsoft and is a open-source project maintained by the community for the community.</value>
+  </data>
   <data name="HOME" xml:space="preserve">
     <value>Home</value>
   </data>
   <data name="SEARCH" xml:space="preserve">
-    <value>Search on author name...</value>
+    <value>Search on author name and tag...</value>
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>Twitter</value>
