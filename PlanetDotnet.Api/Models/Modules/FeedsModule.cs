@@ -5,7 +5,6 @@
 // ---------------------------------------------------------------
 
 using Autofac;
-using Microsoft.Extensions.Logging;
 using PlanetDotnet.Api.Models.Foundations.Abstractions;
 
 namespace PlanetDotnet.Api.Models.Modules

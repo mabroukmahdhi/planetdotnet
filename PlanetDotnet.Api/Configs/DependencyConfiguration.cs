@@ -16,8 +16,8 @@ namespace PlanetDotnet.Api.Configs
         {
             DependencyInjection.Initialize(builder =>
             {
-                builder.RegisterAssemblyModules(typeof(AuthorBroker).Assembly);  
-                builder.RegisterType<AuthorBroker>().As<IAuthorBroker>();  
+                builder.RegisterAssemblyModules(typeof(AuthorBroker).Assembly);
+                builder.RegisterType<AuthorBroker>().As<IAuthorBroker>();
 
             }, functionName);
         }
