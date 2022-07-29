@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Api.Models.Foundations.Abstractions;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 
 namespace PlanetDotnet.Api.Brokers.Authors

@@ -4,9 +4,9 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Api.Models.Foundations.Abstractions;
-using PlanetDotnet.Api.Models.Foundations.GeoPositions;
-using PlanetDotnet.Api.Models.Foundations.Tags;
+using PlanetDotnet.Shared.Abstractions;
+using PlanetDotnet.Shared.Abstractions.GeoPositions;
+using PlanetDotnet.Shared.Abstractions.Tags;
 using System;
 using System.Collections.Generic;
 

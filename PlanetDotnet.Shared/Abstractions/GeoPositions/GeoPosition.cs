@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Api.Models.Foundations.GeoPositions
+namespace PlanetDotnet.Shared.Abstractions.GeoPositions
 {
     public class GeoPosition
     {

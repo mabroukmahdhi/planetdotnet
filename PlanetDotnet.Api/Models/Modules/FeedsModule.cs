@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------
 
 using Autofac;
-using PlanetDotnet.Api.Models.Foundations.Abstractions;
+using PlanetDotnet.Shared.Abstractions;
 
 namespace PlanetDotnet.Api.Models.Modules
 {

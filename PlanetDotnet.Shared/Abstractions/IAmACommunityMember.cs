@@ -4,12 +4,10 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Api.Models.Foundations.GeoPositions;
-using PlanetDotnet.Api.Models.Foundations.Tags;
-using System;
-using System.Collections.Generic;
+using PlanetDotnet.Shared.Abstractions.GeoPositions;
+using PlanetDotnet.Shared.Abstractions.Tags;
 
-namespace PlanetDotnet.Api.Models.Foundations.Abstractions
+namespace PlanetDotnet.Shared.Abstractions
 {
     public interface IAmACommunityMember
     {

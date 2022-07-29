@@ -7,10 +7,10 @@
 using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 
-namespace PlanetDotnet.Api.Brokers.Authors
+namespace PlanetDotnet.Api.Services.Foundations.Authors
 {
-    public interface IAuthorBroker
+    public interface IAuthorService
     {
-        IEnumerable<IAmACommunityMember> SelectAllAuthers();
+        IEnumerable<IAmACommunityMember> RetrieveAllAuthors();
     }
 }

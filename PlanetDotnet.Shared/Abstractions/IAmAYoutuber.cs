@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-namespace PlanetDotnet.Api.Models.Foundations.Abstractions
+namespace PlanetDotnet.Shared.Abstractions
 {
-    public interface IWorkAtMicrosoft : IAmACommunityMember
+    public interface IAmAYoutuber : IAmACommunityMember
     { }
 }
