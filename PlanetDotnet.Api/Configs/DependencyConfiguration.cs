@@ -7,6 +7,7 @@
 using Autofac;
 using AzureFunctions.Autofac.Configuration;
 using PlanetDotnet.Api.Brokers.Authors;
+using PlanetDotnet.Api.Brokers.Loggings;
 
 namespace PlanetDotnet.Api.Configs
 {
@@ -18,6 +19,7 @@ namespace PlanetDotnet.Api.Configs
             {
                 builder.RegisterAssemblyModules(typeof(AuthorBroker).Assembly);
                 builder.RegisterType<AuthorBroker>().As<IAuthorBroker>();
+                builder.RegisterType<LoggingBroker>().As<ILoggingBroker>();
 
             }, functionName);
         }
