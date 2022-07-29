@@ -20,6 +20,7 @@ namespace PlanetDotnet.Shared.Abstractions
         string TwitterHandle { get; }
         string GitHubHandle { get; }
         string GravatarHash { get; }
+        string InternalUseOnlyImage { get; }
         IEnumerable<Uri> FeedUris { get; }
         GeoPosition Position { get; }
         string FeedLanguageCode { get; }
