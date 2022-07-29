@@ -8,6 +8,7 @@ using FluentAssertions;
 using Moq;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
+using PlanetDotnet.Shared.Abstractions.GeoPositions;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -95,6 +96,53 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             foreach (var author in authors)
             {
                 cultureNames.Should().Contain(author.FeedLanguageCode);
+            }
+        }
+
+        [Fact]
+        public void ShouldHaveFirstName()
+        {
+            // given
+            var authors = GetAuthors();
+
+            // when .. then
+            foreach (var author in authors)
+            {
+                author.FirstName.Should().NotBeNullOrEmpty();
+            }
+        }
+
+        [Fact]
+        public void ShouldHaveValidWebSite()
+        {
+            // given
+            var authors = GetAuthors();
+
+            // when .. then
+            foreach (var author in authors)
+            {
+                author.WebSite.Should().NotBeNull();
+                author.WebSite.IsWellFormedOriginalString().Should().BeTrue();
+            }
+        }
+
+        [Fact]
+        public void ShouldHaveValidCoordinates()
+        {
+            // given
+            var authors = GetAuthors();
+
+            // when .. then
+            foreach (var author in authors)
+            {
+                if (author.Position == null)
+                    continue;
+
+                if (author.Position == GeoPosition.Empty)
+                    continue;
+
+                author.Position.Lat.Should().BeInRange(-90.0, 90);
+                author.Position.Lng.Should().BeInRange(-180.0, 180);
             }
         }
     }
