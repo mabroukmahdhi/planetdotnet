@@ -6,7 +6,9 @@
 
 using PlanetDotnet.Api.Brokers.Authors;
 using PlanetDotnet.Api.Brokers.Loggings;
+using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Shared.Abstractions;
+using System;
 using System.Collections.Generic;
 
 namespace PlanetDotnet.Api.Services.Foundations.Authors
@@ -24,7 +26,21 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
             this.loggingBroker = loggingBroker;
         }
 
-        public IEnumerable<IAmACommunityMember> RetrieveAllAuthors() =>
-            this.authorBroker.SelectAllAuthers();
+        public IEnumerable<IAmACommunityMember> RetrieveAllAuthors()
+        {
+            try
+            {
+                return this.authorBroker.SelectAllAuthers();
+            }
+            catch (Exception exception)
+            {
+                var authorServiceException =
+                    new AuthorServiceException(exception);
+
+                this.loggingBroker.LogError(authorServiceException);
+
+                throw authorServiceException;
+            }
+        }
     }
 }

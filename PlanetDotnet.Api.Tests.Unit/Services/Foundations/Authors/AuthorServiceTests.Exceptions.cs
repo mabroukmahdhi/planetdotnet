@@ -34,12 +34,13 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             // then
             retrieveAllAction.Should().Throw<AuthorServiceException>();
 
+            this.loggingBrokerMock.Verify(broker =>
+                broker.LogError(
+                    It.Is(SameExceptionAs(expectedServiceExcption))),
+                        Times.Once);
+
             this.authorBrokerMock.Verify(broker =>
                 broker.SelectAllAuthers(),
-                    Times.Once);
-
-            this.loggingBrokerMock.Verify(broker =>
-                broker.LogError(expectedServiceExcption),
                     Times.Once);
 
             this.authorBrokerMock.VerifyNoOtherCalls();
