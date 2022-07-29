@@ -58,5 +58,25 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                     $"{author.Name} does not implement interface {nameof(IAmACommunityMember)}");
             }
         }
+
+        [Fact]
+        public void ShouldBeInAuthorsNamespace()
+        {
+            var assembly = Assembly.GetAssembly(typeof(IAmACommunityMember));
+
+            var types = assembly.GetTypes();
+
+            var authors = types.Where(type =>
+                type.IsClass
+                && type.Namespace == ModelsNamespace
+                && !type.Name.Contains("<"));
+
+            foreach (var author in authors)
+            {
+                this.testOutputHelper.WriteLine($"{author.Name} uses Namespace: {author.Namespace}");
+
+                author.Namespace.Should().Be(ModelsNamespace);
+            }
+        }
     }
 }
