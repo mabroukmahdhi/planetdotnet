@@ -4,6 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Models.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 using System.Net.Http.Json;
@@ -17,7 +18,7 @@ namespace PlanetDotnet.Brokers.Apis
 
         public async ValueTask<IEnumerable<IAmACommunityMember>> GetAuthorsAsync()
         {
-            return await this.httpClient.GetFromJsonAsync<IEnumerable<IAmACommunityMember>>(
+            return await this.httpClient.GetFromJsonAsync<IEnumerable<Author>>(
                 requestUri: GetAuthorsRelativeUrl);
         }
     }
