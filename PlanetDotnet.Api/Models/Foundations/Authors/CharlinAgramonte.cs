@@ -28,6 +28,7 @@ namespace PlanetDotnet.Api.Models.Foundations.Authors
         public IEnumerable<Uri> FeedUris { get { yield return new Uri("https://xamgirl.com/rss"); } }
         public string FeedLanguageCode => "en";
         public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin, Tag.DotNetMAUI };
+        public string Avatar { get; set; }
     }
 
 }

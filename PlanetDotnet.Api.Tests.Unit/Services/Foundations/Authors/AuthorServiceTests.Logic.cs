@@ -24,9 +24,16 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             // given
             var authors = GetAuthors();
 
+            var randomImage = GetRandomImage();
+
             this.authorBrokerMock.Setup(broker =>
                 broker.SelectAllAuthers())
                     .Returns(authors);
+
+            this.gravatarBrokerMock.Setup(broker =>
+                broker.GetGravatarImage(
+                    It.IsAny<IAmACommunityMember>()))
+                      .Returns(randomImage);
 
             // when
             var actualAuthors =
@@ -39,7 +46,13 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                 broker.SelectAllAuthers(),
                     Times.Once);
 
+            this.gravatarBrokerMock.Verify(broker =>
+                broker.GetGravatarImage(
+                    It.IsAny<IAmACommunityMember>()),
+                        Times.Exactly(authors.Count()));
+
             this.authorBrokerMock.VerifyNoOtherCalls();
+            this.gravatarBrokerMock.VerifyNoOtherCalls();
         }
 
         [Fact]

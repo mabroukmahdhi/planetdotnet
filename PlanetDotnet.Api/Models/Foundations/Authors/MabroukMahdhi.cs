@@ -39,5 +39,6 @@ namespace PlanetDotnet.Api.Models.Foundations.Authors
         public string FeedLanguageCode => "en";
 
         public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin, Tag.Blazor };
+        public string Avatar { get; set; }
     }
 }

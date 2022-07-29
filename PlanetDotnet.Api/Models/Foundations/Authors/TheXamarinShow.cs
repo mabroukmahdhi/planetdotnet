@@ -32,5 +32,7 @@ namespace PlanetDotnet.Api.Models.Foundations.Authors
         public GeoPosition Position => new GeoPosition(47.6451360, -122.1309390);
         public string FeedLanguageCode => "en";
         public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin };
+
+        public string Avatar { get; set; }
     }
 }

@@ -6,6 +6,7 @@
 
 using Moq;
 using PlanetDotnet.Api.Brokers.Authors;
+using PlanetDotnet.Api.Brokers.Gravatars;
 using PlanetDotnet.Api.Brokers.Loggings;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
@@ -25,6 +26,8 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
     {
         private readonly Mock<IAuthorBroker> authorBrokerMock;
         private readonly Mock<ILoggingBroker> loggingBrokerMock;
+        private readonly Mock<IGravatarBroker> gravatarBrokerMock;
+
         private readonly IAuthorService authorService;
         private readonly ITestOutputHelper testOutputHelper;
 
@@ -36,10 +39,12 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
 
             this.authorBrokerMock = new Mock<IAuthorBroker>();
             this.loggingBrokerMock = new Mock<ILoggingBroker>();
+            this.gravatarBrokerMock = new Mock<IGravatarBroker>();
 
             this.authorService = new AuthorService(
                 authorBroker: this.authorBrokerMock.Object,
-                loggingBroker: this.loggingBrokerMock.Object);
+                loggingBroker: this.loggingBrokerMock.Object,
+                gravatarBroker: this.gravatarBrokerMock.Object);
         }
 
         private Expression<Func<Exception, bool>> SameExceptionAs(Exception expectedException)

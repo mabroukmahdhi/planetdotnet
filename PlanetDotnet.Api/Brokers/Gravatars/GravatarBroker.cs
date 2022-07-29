@@ -6,10 +6,10 @@
 
 using Microsoft.Extensions.Configuration;
 using PlanetDotnet.Shared.Abstractions;
-using System.Security.Cryptography;
-using System.Text;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PlanetDotnet.Api.Brokers.Gravatars
 {
