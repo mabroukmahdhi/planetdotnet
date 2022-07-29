@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Apis.FeedRequests;
+using PlanetDotnet.Api.Models.Apis.FeedRequests;
 using System;
 using System.Collections.Generic;
 using System.IO;

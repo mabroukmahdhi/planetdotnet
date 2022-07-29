@@ -4,32 +4,33 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using AzureFunctions.Autofac;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using PlanetDotnet.Brokers.Authors;
-using System.Threading.Tasks;
+using PlanetDotnet.Api.Brokers.Authors;
+using PlanetDotnet.Api.Configs;
+using System.Linq;
 
 namespace PlanetDotnet.Api.Functions
 {
-    public class AuthorsGet
+    [DependencyInjectionConfig(typeof(DependencyConfiguration))]
+    public static class AuthorsGet
     {
-        private readonly IAuthorBroker authorBroker;
-
-        public AuthorsGet(IAuthorBroker authorBroker) =>
-            this.authorBroker = authorBroker;
-
 
         [FunctionName("AuthorsGet")]
-        public async Task<IActionResult> Run(
+        public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "authors")] HttpRequest req,
+            [Inject] IAuthorBroker authorBroker,
             ILogger log)
         {
             log.LogInformation("Authors processed a request.");
 
-            var authors = this.authorBroker.SelectAllAuthers();
+            var authors = authorBroker.SelectAllAuthers();
+
+            log.LogInformation($"{authors?.Count()} author(s) found.");
 
             return new OkObjectResult(authors);
         }
