@@ -6,19 +6,11 @@
 
 using FluentAssertions;
 using Moq;
-using PlanetDotnet.Api.Brokers.Authors;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
-using Tynamix.ObjectFiller;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
 {
@@ -46,6 +38,25 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                     Times.Once);
 
             this.authorBrokerMock.VerifyNoOtherCalls();
+        }
+
+        [Fact]
+        public void ShouldImplementInterface()
+        {
+            var assembly = Assembly.GetAssembly(typeof(IAuthorService));
+
+            var types = assembly.GetTypes();
+
+            var authors = types.Where(type =>
+                type.IsClass
+                && type.Namespace == ModelsNamespace
+                && !type.Name.Contains("<"));
+
+            foreach (var author in authors)
+            {
+                Assert.True(typeof(IAmACommunityMember).IsAssignableFrom(author),
+                    $"{author.Name} does not implement interface {nameof(IAmACommunityMember)}");
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
         private readonly IAuthorService authorService;
         private readonly ITestOutputHelper testOutputHelper;
 
-        private const string ModelsNamespace = "PlanetDotnet.Models.Foundations.Authors";
+        private const string ModelsNamespace = "PlanetDotnet.Api.Models.Foundations.Authors";
 
         public AuthorServiceTests(ITestOutputHelper testOutputHelper)
         {
