@@ -10,7 +10,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PlanetDotnet.Api.Models.Apis.FeedRequests;
 using PlanetDotnet.Api.Services;
 using System;
 using System.IO;
