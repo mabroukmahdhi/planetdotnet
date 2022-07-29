@@ -11,9 +11,6 @@
     <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlanetDotnet.Shared\PlanetDotnet.Shared.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -21,5 +18,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Foundations\" />
   </ItemGroup>
 </Project>
