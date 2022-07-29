@@ -8,6 +8,7 @@ using FluentAssertions;
 using Moq;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using Xunit;
@@ -76,6 +77,24 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                 this.testOutputHelper.WriteLine($"{author.Name} uses Namespace: {author.Namespace}");
 
                 author.Namespace.Should().Be(ModelsNamespace);
+            }
+        }
+
+        [Fact]
+        public void ShouldHaveValidLanguageCode()
+        {
+            // given
+            var authors = GetAuthors();
+
+            var cultureNames = CultureInfo.GetCultures(
+             types: CultureTypes.NeutralCultures)
+                 .Select(c => c.Name);
+
+            // when .. then
+
+            foreach (var author in authors)
+            {
+                cultureNames.Should().Contain(author.FeedLanguageCode);
             }
         }
     }
