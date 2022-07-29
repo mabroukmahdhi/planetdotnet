@@ -4,14 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Collections.Generic;
+using System;
 
-namespace PlanetDotnet.Shared.Models.FeedRequests
+namespace PlanetDotnet.Models.Foundations.Authors.Exceptions
 {
-    public class FeedRequest
+    public class NullAuthorException : Exception
     {
-        public int MaxItems { get; set; } = 150;
-        public string FeedLanguage { get; set; } = "mixed";
-        public IEnumerable<AuthorInfo> Authors { get; set; }
+        public NullAuthorException()
+            : base(message: "Author is null.")
+        { }
     }
 }

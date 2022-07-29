@@ -4,16 +4,13 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Models.Foundations.Abstractions;
 using System.Collections.Generic;
 
-namespace PlanetDotnet.Api.Models.FeedRequests
+namespace PlanetDotnet.Brokers.Authors
 {
-    public class AuthorInfo
+    public interface IAuthorBroker
     {
-        public string FullName { get; set; }
-        public string WebSite { get; set; }
-        public string Email { get; set; }
-        public string Language { get; set; }
-        public IEnumerable<string> FeedUris { get; set; }
+        IEnumerable<IAmACommunityMember> SelectAllAuthers();
     }
 }

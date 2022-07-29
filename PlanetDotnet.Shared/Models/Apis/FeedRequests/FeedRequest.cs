@@ -6,14 +6,13 @@
 
 using System.Collections.Generic;
 
-namespace PlanetDotnet.Shared.Models.FeedRequests
+namespace PlanetDotnet.Models.Apis.FeedRequests
 {
-    public class AuthorInfo
+    public class FeedRequest
     {
-        public string FullName { get; set; }
-        public string WebSite { get; set; }
-        public string Language { get; set; }
-        public IEnumerable<string> FeedUris { get; set; }
+        public int MaxItems { get; set; } = 150;
+        public string FeedLanguage { get; set; } = "mixed";
+        public IEnumerable<AuthorInfo> Authors { get; set; }
         public IEnumerable<string> Tags { get; set; }
     }
 }

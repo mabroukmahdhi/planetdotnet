@@ -12,8 +12,6 @@ using PlanetDotnet.Models.Apis.FeedRequests;
 using PlanetDotnet.Models.Foundations.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Foundations.Authors
 {

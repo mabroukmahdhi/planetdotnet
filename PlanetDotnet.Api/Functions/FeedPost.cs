@@ -1,11 +1,17 @@
+// ---------------------------------------------------------------
+// Copyright (c) .NET Community, Mabrouk Mahdhi
+// Licensed under the MIT License.
+// See License.txt in the project root for license information.
+// ---------------------------------------------------------------
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using PlanetDotnet.Api.Models.FeedRequests;
 using PlanetDotnet.Api.Services;
+using PlanetDotnet.Models.Apis.FeedRequests;
 using System;
 using System.IO;
 using System.Threading.Tasks;

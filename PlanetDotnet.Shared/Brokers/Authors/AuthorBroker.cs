@@ -7,13 +7,18 @@
 using PlanetDotnet.Models.Foundations.Abstractions;
 using System.Collections.Generic;
 
-namespace PlanetDotnet.Services.Foundations.Authors
+namespace PlanetDotnet.Brokers.Authors
 {
-    public interface IAuthorService
+    public partial class AuthorBroker : IAuthorBroker
     {
-        IEnumerable<IAmACommunityMember> RetrieveAllAuthers();
+        private readonly IEnumerable<IAmACommunityMember> members;
 
-        string RetrieveAuthorImage(IAmACommunityMember author);
-        void PostFeeds();
+        public AuthorBroker(IEnumerable<IAmACommunityMember> members) =>
+            this.members = members;
+
+        public IEnumerable<IAmACommunityMember> SelectAllAuthers()
+        {
+            return members;
+        }
     }
 }
