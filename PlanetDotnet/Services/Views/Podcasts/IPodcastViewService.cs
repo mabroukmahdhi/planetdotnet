@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Podcasts;
+using PlanetDotnet.Shared.Abstractions;
 
 namespace PlanetDotnet.Services.Views.Podcasts
 {

@@ -5,9 +5,9 @@
 // ---------------------------------------------------------------
 
 using Microsoft.AspNetCore.Components;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Authors;
 using PlanetDotnet.Services.Views.Authors.Profiles;
+using PlanetDotnet.Shared.Abstractions;
 
 namespace PlanetDotnet.Views.Components.ProfileComponents
 {

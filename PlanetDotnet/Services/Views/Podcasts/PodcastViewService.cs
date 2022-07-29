@@ -5,9 +5,9 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Brokers.Loggings;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Podcasts;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System;
 
 namespace PlanetDotnet.Services.Views.Podcasts
@@ -32,7 +32,7 @@ namespace PlanetDotnet.Services.Views.Podcasts
                 return new PodcastView
                 {
                     Id = author.GetType().Name,
-                    Avatar = this.authorService.RetrieveAuthorImage(author),
+                    Avatar = author.Avatar,
                     FullName = $"{author.FirstName} {author.LastName}",
                     StateOrRegion = author.StateOrRegion,
                     TwitterHandle = author.TwitterHandle,

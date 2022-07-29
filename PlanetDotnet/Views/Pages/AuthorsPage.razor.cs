@@ -5,10 +5,11 @@
 // ---------------------------------------------------------------
 
 using Microsoft.AspNetCore.Components;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Services.Views.Authors.ListViews;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Views.Pages
 {
@@ -18,21 +19,18 @@ namespace PlanetDotnet.Views.Pages
         public IAuthorListViewService AuthorsViewService { get; set; }
 
         public IEnumerable<IAmACommunityMember> Members { get; set; }
+        private IEnumerable<IAmACommunityMember> source;
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            try
-            {
-                this.Members = AuthorsViewService
-                    .LoadCommunityMembers();
-            }
-            catch
-            { }
+            this.Members = this.source
+                = await AuthorsViewService
+                    .LoadAuthorsAsync();
         }
 
         private void SearchTextChanged(ChangeEventArgs args)
         {
-            var authers = AuthorsViewService.LoadCommunityMembers();
+            var authers = this.source;
 
             var name = args.Value?.ToString();
 

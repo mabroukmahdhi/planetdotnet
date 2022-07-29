@@ -6,13 +6,14 @@
 
 using Microsoft.Extensions.Configuration;
 using PlanetDotnet.Brokers.Loggings;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.Configurations;
 using PlanetDotnet.Models.Views.Welcomes;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Views.Welcomes
 {
@@ -48,7 +49,7 @@ namespace PlanetDotnet.Services.Views.Welcomes
                     GithubRepository = this.localConfigurations.GithubRepository,
                     TwitterLink = this.localConfigurations.TwitterLink,
                     PreviewPagePath = this.localConfigurations.PreviewPagePath,
-                    Podcasts = GetPodcasts()
+                    // Podcasts = //GetPodcastsAsync()
                 };
             }
             catch (Exception ex)
@@ -59,9 +60,9 @@ namespace PlanetDotnet.Services.Views.Welcomes
             }
         }
 
-        private IEnumerable<IAmACommunityMember> GetPodcasts()
+        private async ValueTask<IEnumerable<IAmACommunityMember>> GetPodcastsAsync()
         {
-            var authors = this.authorService.RetrieveAllAuthers();
+            var authors = await this.authorService.RetrieveAllAuthorsAsync();
 
             return authors?.Where(author =>
                 author is IAmAPodcast

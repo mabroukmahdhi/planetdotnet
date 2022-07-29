@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PlanetDotnet.Shared\PlanetDotnet.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\PDResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

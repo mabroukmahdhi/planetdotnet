@@ -4,7 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Authors.Exceptions;
 using System;
 
 namespace PlanetDotnet.Services.Foundations.Authors
@@ -19,31 +18,31 @@ namespace PlanetDotnet.Services.Foundations.Authors
             {
                 return returnStringFunction();
             }
-            catch (NullAuthorException nullAuthorException)
-            {
-                throw CreateAndLogValidationException(nullAuthorException);
-            }
+            //catch (NullAuthorException nullAuthorException)
+            //{
+            //    throw CreateAndLogValidationException(nullAuthorException);
+            //}
             catch (Exception exception)
             {
-                throw CreateAndLogServiceException(exception);
+                throw exception; // throw CreateAndLogServiceException(exception);
             }
         }
 
-        private AuthorValidationException CreateAndLogValidationException(Exception exception)
-        {
-            var authorValidationException = new AuthorValidationException(exception);
-            this.loggingBroker.LogError(authorValidationException);
+        //private AuthorValidationException CreateAndLogValidationException(Exception exception)
+        //{
+        //    var authorValidationException = new AuthorValidationException(exception);
+        //    this.loggingBroker.LogError(authorValidationException);
 
-            return authorValidationException;
-        }
+        //    return authorValidationException;
+        //}
 
-        private AuthorServiceException CreateAndLogServiceException(Exception exception)
-        {
-            var authorServiceException = new AuthorServiceException(exception);
-            this.loggingBroker.LogError(authorServiceException);
+        //private AuthorServiceException CreateAndLogServiceException(Exception exception)
+        //{
+        //    var authorServiceException = new AuthorServiceException(exception);
+        //    this.loggingBroker.LogError(authorServiceException);
 
-            return authorServiceException;
-        }
+        //    return authorServiceException;
+        //}
     }
 
 }

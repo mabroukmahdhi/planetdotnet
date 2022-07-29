@@ -4,16 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Foundations.Authors
 {
     public interface IAuthorService
     {
-        IEnumerable<IAmACommunityMember> RetrieveAllAuthers();
-
-        string RetrieveAuthorImage(IAmACommunityMember author);
-        void PostFeeds();
+        ValueTask<IEnumerable<IAmACommunityMember>> RetrieveAllAuthorsAsync();
     }
 }

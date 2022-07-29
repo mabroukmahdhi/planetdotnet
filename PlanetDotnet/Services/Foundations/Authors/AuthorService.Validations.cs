@@ -4,8 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
-using PlanetDotnet.Models.Foundations.Authors.Exceptions;
+using PlanetDotnet.Shared.Abstractions;
 
 namespace PlanetDotnet.Services.Foundations.Authors
 {
@@ -13,11 +12,11 @@ namespace PlanetDotnet.Services.Foundations.Authors
     {
         private void ValidateAuthor(IAmACommunityMember author)
         {
-            switch (author)
-            {
-                case null:
-                    throw new NullAuthorException();
-            }
+            //switch (author)
+            //{
+            //    case null:
+            //        throw new NullAuthorException();
+            //}
         }
     }
 }

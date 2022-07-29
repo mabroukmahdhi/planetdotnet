@@ -5,12 +5,9 @@
 // ---------------------------------------------------------------
 
 using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlanetDotnet.Brokers.Apis;
-using PlanetDotnet.Brokers.Authors;
-using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Brokers.Navigations;
@@ -23,7 +20,6 @@ using PlanetDotnet.Services.Views.Podcasts;
 using PlanetDotnet.Services.Views.Welcomes;
 using System;
 using System.Globalization;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace PlanetDotnet.Extensions
@@ -32,8 +28,6 @@ namespace PlanetDotnet.Extensions
     {
         public static void AddBrokers(this IServiceCollection services)
         {
-            services.AddSingleton<IAuthorBroker, AuthorBroker>();
-            services.AddScoped<IGravatarBroker, GravatarBroker>();
             services.AddScoped<ILogger, Logger<LoggingBroker>>();
             services.AddScoped<ILoggingBroker, LoggingBroker>();
             services.AddBlazoredLocalStorage();
@@ -51,11 +45,6 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IMapViewService, MapViewService>();
             services.AddScoped<IPodcastViewService, PodcastViewService>();
             services.AddScoped<IWelcomeViewService, WelcomeViewService>();
-        }
-
-        public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)
-        {
-            builder.ConfigureContainer(new AutofacServiceProviderFactory(ConfigureContainer));
         }
 
         public static async ValueTask SetDefaultCulture(
@@ -79,22 +68,6 @@ namespace PlanetDotnet.Extensions
             CultureInfo.DefaultThreadCurrentUICulture =
                 new CultureInfo(culture);
         }
-
-        public static void PostFeeds(
-            this IServiceProvider services)
-        {
-            var authorService =
-                 services.GetRequiredService<IAuthorService>();
-
-            authorService.PostFeeds();
-        }
-
-        private static void ConfigureContainer(ContainerBuilder builder)
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            builder.RegisterAssemblyModules(assembly);
-        }
-
     }
 
 }

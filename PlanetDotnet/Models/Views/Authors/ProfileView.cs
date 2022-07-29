@@ -4,7 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Tags;
+using PlanetDotnet.Shared.Abstractions.Tags;
 using System.Collections.Generic;
 
 namespace PlanetDotnet.Models.Views.Authors

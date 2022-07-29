@@ -15,7 +15,6 @@ using System;
 
 namespace PlanetDotnet.Api.Functions
 {
-
     public class AuthorsGet
     {
         private readonly IAuthorService authorService;
