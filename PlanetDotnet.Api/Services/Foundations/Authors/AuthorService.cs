@@ -11,6 +11,7 @@ using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Shared.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlanetDotnet.Api.Services.Foundations.Authors
 {
@@ -34,7 +35,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
         {
             try
             {
-                var authors = this.authorBroker.SelectAllAuthers();
+                var authors = this.authorBroker.SelectAllAuthers().ToList();
 
                 foreach (var author in authors)
                 {

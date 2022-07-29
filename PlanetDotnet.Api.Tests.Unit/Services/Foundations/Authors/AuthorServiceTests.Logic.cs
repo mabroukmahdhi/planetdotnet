@@ -42,6 +42,11 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             // then
             actualAuthors.Should().BeEquivalentTo(authors);
 
+            foreach (var item in actualAuthors)
+            {
+                item.Avatar.Should().NotBeNullOrWhiteSpace();
+            }
+
             this.authorBrokerMock.Verify(broker =>
                 broker.SelectAllAuthers(),
                     Times.Once);

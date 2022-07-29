@@ -4,8 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;

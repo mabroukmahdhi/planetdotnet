@@ -4,8 +4,6 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection.AzureFunctions" Version="7.2.0.88" />
-    <PackageReference Include="AzureFunctions.Autofac" Version="4.0.3" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
     <PackageReference Include="System.ServiceModel.Syndication" Version="6.0.0" />

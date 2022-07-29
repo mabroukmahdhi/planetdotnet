@@ -4,7 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Autofac;
 using PlanetDotnet.Models.Foundations.Abstractions;
 
 namespace PlanetDotnet.Models.Modules
