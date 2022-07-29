@@ -11,9 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Views.Pages
+namespace PlanetDotnet.Views.Components.AuthorsComponents
 {
-    public partial class AuthorsPage : ComponentBase
+    public partial class AuthorsComponent : ComponentBase
     {
         [Inject]
         public IAuthorListViewService AuthorsViewService { get; set; }
