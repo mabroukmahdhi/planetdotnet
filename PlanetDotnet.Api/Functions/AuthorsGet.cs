@@ -11,6 +11,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Api.Services.Foundations.Authors;
+using System;
 
 namespace PlanetDotnet.Api.Functions
 {
@@ -34,11 +35,17 @@ namespace PlanetDotnet.Api.Functions
             }
             catch (AuthorServiceException authorServiceException)
             {
-                return new ConflictObjectResult(
-                    authorServiceException.InnerException?.Message);
+                var message =
+                    authorServiceException.InnerException?.Message;
+
+                log.LogError(message);
+
+                return new ConflictObjectResult(message);
             }
-            catch
+            catch (Exception exception)
             {
+                log.LogError(exception.Message);
+
                 return new BadRequestResult();
             }
         }
