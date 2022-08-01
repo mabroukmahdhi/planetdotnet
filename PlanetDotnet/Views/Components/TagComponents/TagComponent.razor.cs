@@ -15,7 +15,7 @@ namespace PlanetDotnet.Views.Components.TagComponents
     public partial class TagComponent : ComponentBase
     {
         [Parameter]
-        public IEnumerable<Tag> Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
 
         public SharpStyle Style { get; set; }
 

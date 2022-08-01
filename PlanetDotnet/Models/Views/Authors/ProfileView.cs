@@ -18,6 +18,6 @@ namespace PlanetDotnet.Models.Views.Authors
         public string Description { get; set; }
         public string StateOrRegion { get; set; }
         public string WebSite { get; set; }
-        public IEnumerable<Tag> Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
     }
 }

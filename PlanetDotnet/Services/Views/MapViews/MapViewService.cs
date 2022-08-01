@@ -22,7 +22,7 @@ namespace PlanetDotnet.Services.Views.MapViews
             {
                 yield return new Marker
                 {
-                    Id = member.GetType().Name,
+                    Id = $"{member.FirstName}{member.LastName}",
                     Lat = member.Position.Lat,
                     Lng = member.Position.Lng,
                     Name = $"{member.FirstName} {member.LastName}",

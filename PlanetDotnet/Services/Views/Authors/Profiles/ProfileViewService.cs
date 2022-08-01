@@ -33,14 +33,14 @@ namespace PlanetDotnet.Services.Views.Authors.Profiles
             {
                 return new ProfileView
                 {
-                    Id = author.GetType().Name,
+                    Id = $"{author.FirstName}{author.LastName}",
                     Avatar = author.Avatar,
                     FullName = $"{author.FirstName} {author.LastName}",
                     StateOrRegion = author.StateOrRegion,
                     TwitterHandle = author.TwitterHandle,
                     WebSite = author.WebSite.ToString(),
                     Description = MakeDescription(author),
-                    Tags = author.Tags?.Cast<Tag>()
+                    Tags = author.Tags 
                 };
 
             }
