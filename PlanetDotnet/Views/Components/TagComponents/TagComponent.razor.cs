@@ -6,7 +6,6 @@
 
 using Microsoft.AspNetCore.Components;
 using PlanetDotnet.Models.Views.Tags;
-using PlanetDotnet.Shared.Abstractions.Tags;
 using SharpStyles.Models;
 using System.Collections.Generic;
 

@@ -8,9 +8,7 @@ using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Models.Views.Podcasts;
 using PlanetDotnet.Services.Foundations.Authors;
 using PlanetDotnet.Shared.Abstractions;
-using PlanetDotnet.Shared.Abstractions.Tags;
 using System;
-using System.Linq;
 
 namespace PlanetDotnet.Services.Views.Podcasts
 {
@@ -40,7 +38,7 @@ namespace PlanetDotnet.Services.Views.Podcasts
                     TwitterHandle = author.TwitterHandle,
                     WebSite = author.WebSite.ToString(),
                     Description = MakeDescription(author),
-                    Tags = author.Tags 
+                    Tags = author.Tags
                 };
 
             }
