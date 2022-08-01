@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using System;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PlanetDotnet.Api.Functions
@@ -44,7 +45,9 @@ namespace PlanetDotnet.Api.Functions
                     tag: tag,
                     languageCode: lng);
 
-                return new OkObjectResult(xmlFeed);
+                byte[] filebytes = Encoding.UTF8.GetBytes(xmlFeed);
+
+                return new FileContentResult(filebytes, "application/rss+xml");
             }
             catch (AuthorServiceException authorServiceException)
             {
