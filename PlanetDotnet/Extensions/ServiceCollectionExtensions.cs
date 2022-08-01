@@ -12,6 +12,7 @@ using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Brokers.Navigations;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Services.Foundations.Feeds;
 using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
@@ -45,6 +46,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IMapViewService, MapViewService>();
             services.AddScoped<IPodcastViewService, PodcastViewService>();
             services.AddScoped<IWelcomeViewService, WelcomeViewService>();
+            services.AddScoped<IFeedService, FeedService>();
         }
 
         public static async ValueTask SetDefaultCulture(

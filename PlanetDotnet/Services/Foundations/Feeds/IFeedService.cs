@@ -6,14 +6,10 @@
 
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Brokers.Apis
+namespace PlanetDotnet.Services.Foundations.Feeds
 {
-    public partial class ApiBroker
+    public interface IFeedService
     {
-        private const string GetFeedRelativeUrl = "api/feed?max=400&tag=.NET&lng=EN";
-
-        public async ValueTask<string> GetFeedAsync() =>
-             await this.httpClient.GetStringAsync(
-               requestUri: GetFeedRelativeUrl);
+        ValueTask<string> RetrieveFeedAsync();
     }
 }
