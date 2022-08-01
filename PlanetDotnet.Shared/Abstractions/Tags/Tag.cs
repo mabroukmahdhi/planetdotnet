@@ -4,10 +4,6 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Formats.Asn1;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-
 namespace PlanetDotnet.Shared.Abstractions.Tags
 {
     [Serializable]
@@ -38,7 +34,7 @@ namespace PlanetDotnet.Shared.Abstractions.Tags
         public static explicit operator Tag(string tag) => new(tag);
 
         public override string ToString() =>
-        value;
+            value;
     }
 
 }
