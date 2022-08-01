@@ -4,19 +4,11 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Newtonsoft.Json;
-
 namespace PlanetDotnet.Shared.Abstractions.Tags
 {
-    [JsonConverter(typeof(TagJsonConverter))]
     public struct Tag
     {
         private readonly string value;
-
-        public Tag()
-        {
-            this.value = Default;
-        }
 
         private Tag(string value) =>
              this.value = value;
@@ -42,26 +34,5 @@ namespace PlanetDotnet.Shared.Abstractions.Tags
 
         public override string ToString() =>
             value;
-    }
-
-    public class TagJsonConverter : JsonConverter<Tag>
-    {
-        public override Tag ReadJson(
-            JsonReader reader,
-            Type objectType,
-            Tag existingValue,
-            bool hasExistingValue,
-            JsonSerializer serializer)
-        {
-            return (Tag)(reader.Value ?? Tag.Default);
-        }
-
-        public override void WriteJson(
-            JsonWriter writer,
-            Tag value,
-            JsonSerializer serializer)
-        {
-            writer.WriteValue(value.ToString());
-        }
     }
 }

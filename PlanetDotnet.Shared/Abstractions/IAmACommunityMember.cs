@@ -5,7 +5,6 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Shared.Abstractions.GeoPositions;
-using PlanetDotnet.Shared.Abstractions.Tags;
 
 namespace PlanetDotnet.Shared.Abstractions
 {
@@ -28,6 +27,6 @@ namespace PlanetDotnet.Shared.Abstractions
         IEnumerable<Uri> FeedUris { get; }
         GeoPosition Position { get; }
         string FeedLanguageCode { get; }
-        IEnumerable<Tag> Tags { get; }
+        IEnumerable<string> Tags { get; }
     }
 }

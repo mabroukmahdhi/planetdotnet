@@ -42,7 +42,7 @@ namespace PlanetDotnet.Api.Models.Foundations.Authors
 
         public string FeedLanguageCode => "en";
 
-        public IEnumerable<Tag> Tags => new List<Tag> { Tag.Xamarin, Tag.DotNetMAUI };
+        public IEnumerable<string> Tags => new List<string> { Tag.Xamarin, Tag.DotNetMAUI };
         public string Avatar { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace PlanetDotnet.Api.Models.Foundations.Authors
         public string GitHubHandle => string.Empty;
         public GeoPosition Position => new GeoPosition(47.6062100, -122.3320710);
         public string FeedLanguageCode => "en";
-        public IEnumerable<Tag> Tags => new List<Tag> { Tag.Default };
+        public IEnumerable<string> Tags => new List<string> { Tag.Default };
         public string Avatar { get; set; }
     }
 

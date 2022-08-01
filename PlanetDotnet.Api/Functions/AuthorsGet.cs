@@ -9,13 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Api.Services.Foundations.Authors;
-using PlanetDotnet.Shared.Abstractions.Tags;
 using System;
-using System.Collections.Generic;
-using System.Text.Json;
 
 namespace PlanetDotnet.Api.Functions
 {
@@ -33,7 +29,7 @@ namespace PlanetDotnet.Api.Functions
             try
             {
                 var authors = this.authorService.RetrieveAllAuthors();
- 
+
 
                 return new OkObjectResult(authors);
             }

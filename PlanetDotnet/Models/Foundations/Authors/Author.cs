@@ -6,7 +6,6 @@
 
 using PlanetDotnet.Shared.Abstractions;
 using PlanetDotnet.Shared.Abstractions.GeoPositions;
-using PlanetDotnet.Shared.Abstractions.Tags;
 using System;
 using System.Collections.Generic;
 
@@ -40,6 +39,6 @@ namespace PlanetDotnet.Models.Foundations.Authors
 
         public string FeedLanguageCode { get; set; }
 
-        public IEnumerable<Tag> Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
     }
 }

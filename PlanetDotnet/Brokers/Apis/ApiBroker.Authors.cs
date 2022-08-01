@@ -16,10 +16,8 @@ namespace PlanetDotnet.Brokers.Apis
     {
         private const string GetAuthorsRelativeUrl = "api/authors";
 
-        public async ValueTask<IEnumerable<IAmACommunityMember>> GetAuthorsAsync()
-        {
-            return await this.httpClient.GetFromJsonAsync<IEnumerable<Author>>(
+        public async ValueTask<IEnumerable<IAmACommunityMember>> GetAuthorsAsync() =>
+            await this.httpClient.GetFromJsonAsync<IEnumerable<Author>>(
                 requestUri: GetAuthorsRelativeUrl);
-        }
     }
 }
