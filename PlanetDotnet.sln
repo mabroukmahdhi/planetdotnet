@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet", "PlanetDotne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet.Api", "PlanetDotnet.Api\PlanetDotnet.Api.csproj", "{B741B610-E68E-4017-9D06-EDA9C71A35DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetDotnet.Api.Tests.Unit", "PlanetDotnet.Api.Tests.Unit\PlanetDotnet.Api.Tests.Unit.csproj", "{02B6EF79-A5BB-457A-B5D0-2CC151A18687}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet.Api.Tests.Unit", "PlanetDotnet.Api.Tests.Unit\PlanetDotnet.Api.Tests.Unit.csproj", "{02B6EF79-A5BB-457A-B5D0-2CC151A18687}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanetDotnet.Shared", "PlanetDotnet.Shared\PlanetDotnet.Shared.csproj", "{E0D159AC-1187-4C4C-9112-218DB21DB20D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanetDotnet.Shared", "PlanetDotnet.Shared\PlanetDotnet.Shared.csproj", "{E0D159AC-1187-4C4C-9112-218DB21DB20D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
