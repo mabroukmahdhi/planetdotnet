@@ -139,24 +139,29 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
             IEnumerable<IAmACommunityMember> filteredAuthors;
 
-            if (languageCode == null || languageCode == "mixed") // use all tamarins
+            if (languageCode == null
+                && languageCode == "mixed"
+                && tag == ".NET")
             {
                 filteredAuthors = authors;
             }
             else
             {
-                filteredAuthors = authors.Where(t => CultureInfo.CreateSpecificCulture(t.FeedLanguageCode).Name == languageCode);
+                filteredAuthors = authors.Where(author =>
+                    CultureInfo.CreateSpecificCulture(author.FeedLanguageCode).Name == languageCode
+                    && author.Tags != null
+                    && author.Tags.Contains(tag.ToUpper()));
             }
 
-            var feedTasks = authors.SelectMany(t => TryReadFeeds(t, GetFilterFunction(t)));
+            var feedTasks = filteredAuthors.SelectMany(t => TryReadFeeds(t, GetFilterFunction(t)));
 
             var syndicationItems = await Task.WhenAll(feedTasks).ConfigureAwait(false);
-            var combinedFeed = GetCombinedFeed(syndicationItems.SelectMany(f => f), languageCode, authors, numberOfItems);
+            var combinedFeed = GetCombinedFeed(syndicationItems.SelectMany(f => f), languageCode, filteredAuthors, numberOfItems);
             return combinedFeed;
         }
 
         private SyndicationFeed GetCombinedFeed(IEnumerable<SyndicationItem> items, string languageCode,
-            IEnumerable<IAmACommunityMember> tamarins, int? numberOfItems)
+            IEnumerable<IAmACommunityMember> authors, int? numberOfItems)
         {
             DateTimeOffset GetMaxTime(SyndicationItem item)
             {
@@ -180,21 +185,21 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
                 LastUpdatedTime = DateTimeOffset.UtcNow
             };
 
-            foreach (var tamarin in tamarins)
+            foreach (var author in authors)
             {
                 feed.Contributors.Add(new SyndicationPerson(
-                    tamarin.EmailAddress, $"{tamarin.FirstName} {tamarin.LastName}", tamarin.WebSite.ToString()));
+                    author.EmailAddress, $"{author.FirstName} {author.LastName}", author.WebSite.ToString()));
             }
 
             return feed;
         }
 
-        private IEnumerable<Task<IEnumerable<SyndicationItem>>> TryReadFeeds(IAmACommunityMember tamarin, Func<SyndicationItem, bool> filter)
+        private IEnumerable<Task<IEnumerable<SyndicationItem>>> TryReadFeeds(IAmACommunityMember author, Func<SyndicationItem, bool> filter)
         {
-            return tamarin.FeedUris.Select(uri => TryReadFeed(tamarin, uri.AbsoluteUri, filter));
+            return author.FeedUris.Select(uri => TryReadFeed(author, uri.AbsoluteUri, filter));
         }
 
-        private async Task<IEnumerable<SyndicationItem>> TryReadFeed(IAmACommunityMember tamarin, string feedUri, Func<SyndicationItem, bool> filter)
+        private async Task<IEnumerable<SyndicationItem>> TryReadFeed(IAmACommunityMember author, string feedUri, Func<SyndicationItem, bool> filter)
         {
             try
             {
@@ -204,7 +209,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
             {
                 var failedFeedServiceException =
                     new FailedFeedServiceException(
-                        $"{tamarin.FirstName} {tamarin.LastName}'s feed of {ex.Data["FeedUri"]} failed to load.",
+                        $"{author.FirstName} {author.LastName}'s feed of {ex.Data["FeedUri"]} failed to load.",
                         ex);
 
                 this.loggingBroker.LogError(failedFeedServiceException);
