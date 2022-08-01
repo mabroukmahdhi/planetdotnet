@@ -4,14 +4,21 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using Newtonsoft.Json;
+
 namespace PlanetDotnet.Shared.Abstractions.Tags
 {
-    [Serializable]
+    [JsonConverter(typeof(TagJsonConverter))]
     public struct Tag
     {
         private readonly string value;
 
-        public Tag(string value) =>
+        public Tag()
+        {
+            this.value = Default;
+        }
+
+        private Tag(string value) =>
              this.value = value;
 
         public static Tag AspNetCore => new("ASP.NET Core");
@@ -37,4 +44,24 @@ namespace PlanetDotnet.Shared.Abstractions.Tags
             value;
     }
 
+    public class TagJsonConverter : JsonConverter<Tag>
+    {
+        public override Tag ReadJson(
+            JsonReader reader,
+            Type objectType,
+            Tag existingValue,
+            bool hasExistingValue,
+            JsonSerializer serializer)
+        {
+            return (Tag)(reader.Value ?? Tag.Default);
+        }
+
+        public override void WriteJson(
+            JsonWriter writer,
+            Tag value,
+            JsonSerializer serializer)
+        {
+            writer.WriteValue(value.ToString());
+        }
+    }
 }
