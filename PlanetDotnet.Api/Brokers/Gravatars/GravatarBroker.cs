@@ -28,7 +28,7 @@ namespace PlanetDotnet.Api.Brokers.Gravatars
 
             if (string.IsNullOrWhiteSpace(hash))
             {
-                return CreateMd5Hash(member.EmailAddress);
+                hash = CreateMd5Hash(member.EmailAddress);
             }
 
             return $"//www.gravatar.com/avatar/{hash}.jpg?s={size}&d={defaultImage}";

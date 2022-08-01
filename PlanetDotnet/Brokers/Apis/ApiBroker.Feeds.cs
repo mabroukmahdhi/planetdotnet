@@ -10,7 +10,7 @@ namespace PlanetDotnet.Brokers.Apis
 {
     public partial class ApiBroker
     {
-        private const string GetFeedRelativeUrl = "api/feed?max=400&tag=.NET&lng=EN";
+        private const string GetFeedRelativeUrl = "api/rss?max=400&tag=.NET&lng=EN";
 
         public async ValueTask<string> GetFeedAsync() =>
              await this.httpClient.GetStringAsync(

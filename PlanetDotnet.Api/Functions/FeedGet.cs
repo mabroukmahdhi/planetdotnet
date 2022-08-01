@@ -29,14 +29,15 @@ namespace PlanetDotnet.Api.Functions
         {
             try
             {
-                Int32.TryParse(req.Query["max"], out var max);
-                if (max == 0)
+                int max = 400;
+                var paresed = req.Query.TryGetValue("max", out var maxItems);
+                if (paresed)
                 {
-                    max = 400;
+                    paresed = int.TryParse(maxItems, out max);
                 }
 
-                var tag = req.Query["tag"].ToString().ToLower();
-                var lng = req.Query["lng"].ToString().ToLower();
+                req.Query.TryGetValue("tag", out var tag);
+                req.Query.TryGetValue("lng", out var lng);
 
                 var xmlFeed = await this.authorService.RetrieveXmlFeedAsync(
                     numberOfItems: max,
