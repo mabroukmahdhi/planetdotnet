@@ -29,5 +29,10 @@ namespace PlanetDotnet.Services.Foundations.Authors
         {
             return await this.apiBroker.GetAuthorsAsync();
         }
+
+        public async ValueTask<IEnumerable<IAmACommunityMember>> RetrieveAllPodcastsAsync()
+        {
+            return await this.apiBroker.GetPodcastsAsync();
+        }
     }
 }

@@ -8,11 +8,10 @@ using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Services.Foundations.Authors
+namespace PlanetDotnet.Brokers.Apis
 {
-    public interface IAuthorService
+    public partial interface IApiBroker
     {
-        ValueTask<IEnumerable<IAmACommunityMember>> RetrieveAllAuthorsAsync();
-        ValueTask<IEnumerable<IAmACommunityMember>> RetrieveAllPodcastsAsync();
+        ValueTask<IEnumerable<IAmACommunityMember>> GetPodcastsAsync();
     }
 }
