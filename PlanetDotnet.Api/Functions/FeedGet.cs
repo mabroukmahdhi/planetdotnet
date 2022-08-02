@@ -37,8 +37,15 @@ namespace PlanetDotnet.Api.Functions
                     paresed = int.TryParse(maxItems, out max);
                 }
 
-                req.Query.TryGetValue("tag", out var tag);
-                req.Query.TryGetValue("lng", out var lng);
+                if (!req.Query.TryGetValue("tag", out var tag))
+                {
+                    tag = "all";
+                }
+
+                if (!req.Query.TryGetValue("lng", out var lng))
+                {
+                    lng = "mixed";
+                }
 
                 var xmlFeed = await this.authorService.RetrieveXmlFeedAsync(
                     numberOfItems: max,

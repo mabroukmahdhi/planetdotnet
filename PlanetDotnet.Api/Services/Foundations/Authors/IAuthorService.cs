@@ -20,12 +20,12 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
         Task<SyndicationFeed> RetrieveFeedAsync(
             int? numberOfItems,
-            string tag = ".NET",
+            string tag = "all",
             string languageCode = "mixed");
 
         ValueTask<string> RetrieveXmlFeedAsync(
            int? numberOfItems,
-           string tag = ".NET",
+           string tag = "all",
            string languageCode = "mixed");
     }
 }

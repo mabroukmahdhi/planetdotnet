@@ -5,7 +5,6 @@
 // ---------------------------------------------------------------
 
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 using PlanetDotnet.Api.Brokers.Authors;
 using PlanetDotnet.Api.Brokers.Gravatars;
 using PlanetDotnet.Api.Brokers.Loggings;
@@ -108,7 +107,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
         public Task<SyndicationFeed> RetrieveFeedAsync(
             int? numberOfItems,
-            string tag = ".NET",
+            string tag = "all",
             string languageCode = "mixed")
         {
             return cachePolicy.ExecuteAsync(context =>
@@ -118,7 +117,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
         public async ValueTask<string> RetrieveXmlFeedAsync(
            int? numberOfItems,
-           string tag = ".NET",
+           string tag = "all",
            string languageCode = "mixed")
         {
             var feed = await RetrieveFeedAsync(
@@ -131,7 +130,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
         private async Task<SyndicationFeed> LoadFeedInternalAsync(
             int? numberOfItems,
-            string tag = ".NET",
+            string tag = "all",
             string languageCode = "mixed")
         {
             IEnumerable<IAmACommunityMember> authors
@@ -139,29 +138,41 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
 
             IEnumerable<IAmACommunityMember> filteredAuthors;
 
-            if (languageCode == null
-                && languageCode == "mixed"
-                && tag == ".NET")
+            if (string.IsNullOrWhiteSpace(languageCode)
+                || languageCode == "mixed")
             {
-                filteredAuthors = authors;
+                filteredAuthors = tag == "all"
+                    ? authors
+                    : authors.Where(author => author.Tags.Contains(tag));
             }
             else
             {
                 filteredAuthors = authors.Where(author =>
                     CultureInfo.CreateSpecificCulture(author.FeedLanguageCode).Name == languageCode
                     && author.Tags != null
-                    && author.Tags.Contains(tag.ToUpper()));
+                    && author.Tags.Contains(tag));
             }
 
-            var feedTasks = filteredAuthors.SelectMany(t => TryReadFeeds(t, GetFilterFunction(t)));
+            var feedTasks = filteredAuthors.SelectMany(t =>
+                TryReadFeeds(t, GetFilterFunction(t)));
 
-            var syndicationItems = await Task.WhenAll(feedTasks).ConfigureAwait(false);
-            var combinedFeed = GetCombinedFeed(syndicationItems.SelectMany(f => f), languageCode, filteredAuthors, numberOfItems);
+            var syndicationItems =
+                await Task.WhenAll(feedTasks).ConfigureAwait(false);
+
+            var combinedFeed = GetCombinedFeed(
+                syndicationItems.SelectMany(f => f),
+                languageCode,
+                filteredAuthors,
+                numberOfItems);
+
             return combinedFeed;
         }
 
-        private SyndicationFeed GetCombinedFeed(IEnumerable<SyndicationItem> items, string languageCode,
-            IEnumerable<IAmACommunityMember> authors, int? numberOfItems)
+        private SyndicationFeed GetCombinedFeed(
+            IEnumerable<SyndicationItem> items,
+            string languageCode,
+            IEnumerable<IAmACommunityMember> authors,
+            int? numberOfItems)
         {
             DateTimeOffset GetMaxTime(SyndicationItem item)
             {
