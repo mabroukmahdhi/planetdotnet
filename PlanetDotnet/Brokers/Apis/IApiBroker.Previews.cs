@@ -4,12 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Models.Foundations.Previews;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PlanetDotnet.Brokers.Apis
 {
     public partial interface IApiBroker
     {
-        ValueTask<string> GetFeedAsync();
+        ValueTask<IEnumerable<PreviewItem>> GetPreviewsAsync();
     }
 }
