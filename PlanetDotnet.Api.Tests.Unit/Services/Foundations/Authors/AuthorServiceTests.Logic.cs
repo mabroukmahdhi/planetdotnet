@@ -12,6 +12,7 @@ using PlanetDotnet.Shared.Abstractions.GeoPositions;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
@@ -113,6 +114,7 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
 
             foreach (var author in authors)
             {
+                author.FeedLanguageCode.Should().NotBeNullOrWhiteSpace();
                 cultureNames.Should().Contain(author.FeedLanguageCode);
             }
         }
@@ -162,6 +164,33 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                 author.Position.Lat.Should().BeInRange(-90.0, 90);
                 author.Position.Lng.Should().BeInRange(-180.0, 180);
             }
+        }
+
+        [Fact]
+        public void ShouldNotDefineAvatarProperty()
+        {
+            // given
+            var authors = GetAuthors();
+
+            // when .. then
+            foreach (var author in authors)
+            {
+                author.Avatar.Should().NotBeNull();
+            }
+        }
+
+        [Fact]
+        public Task ShouldHaveSecureAndParsableFeed()
+        {
+            // given
+            var authors = GetAuthors();
+
+            this.authorBrokerMock.Setup(broker =>
+               broker.SelectAllAuthers())
+                   .Returns(authors);
+
+            // using MemberData for this test is slow. Intentionally using Task.WhenAll here!
+            return Task.WhenAll(authors.Select(AuthorHasSecureAndParseableFeed));
         }
     }
 }
