@@ -4,7 +4,7 @@ Hi! Welcome to [Planet .NET - Preview](https://brave-field-0981c0d03.1.azurestat
 
 If you write about .NET, you belong here. You're welcome to add your blog and have it aggregated as part of our feed as long as the content you are sharing does not violate the community [code of conduct](https://github.com/mabroukmahdhi/planet.net/blob/master/CODE_OF_CONDUCT.md).
 
-Again, many thanks to the [contributors of PlanetXamarin](https://github.com/planetxamarin/planetxamarin/graphs/contributors) for the template!
+Many thanks to the [contributors of PlanetXamarin](https://github.com/planetxamarin/planetxamarin/graphs/contributors) for the template!
 
 # Add yourself as an author
 
@@ -68,8 +68,8 @@ Enjoy all of our great content!
 Of course you are more than welcome to submit other features and bugfixes as well.
 
 # Build Status
-* Github Actions: [Github Actions](https://github.com/mabroukmahdhi/planet.net/blob/main/.github/workflows/azure-static-web-apps-brave-field-0981c0d03.yml/badge.svg)
+[![Github Actions](https://github.com/mabroukmahdhi/planet.net/actions/workflows/azure-static-web-apps-brave-field-0981c0d03.yml/badge.svg)](https://github.com/mabroukmahdhi/planet.net/actions/workflows/azure-static-web-apps-brave-field-0981c0d03.yml)
 
 # Acknowledgements
-* Thanks to Readify for open sourcing their employee blog aggregation platform which we forked to create PlanetXamarin. Looking for your next challenge? [Readify is hiring](https://join.readify.net/?source=StaffReferral&campaign=geoffrey.huntley) and offers relocation services for developers from abroad.
-* Thanks to [our awesome contributors](https://github.com/planetxamarin/planetxamarin/graphs/contributors) and our [community of authors](https://github.com/planetxamarin/planetxamarin/tree/master/src/Firehose.Web/Authors) who make this all possible.
+* Thanks again for the [contributors of PlanetXamarin](https://github.com/planetxamarin/planetxamarin/graphs/contributors) for the greate template.
+* Thanks to [our awesome contributors]([https://github.com/planetxamarin/planetxamarin/graphs/contributors](https://github.com/mabroukmahdhi/planet.net/graphs/contributors)) and our [community of authors]([https://github.com/planetxamarin/planetxamarin/tree/master/src/Firehose.Web/Authors](https://github.com/mabroukmahdhi/planet.net/tree/main/PlanetDotnet.Api/Models/Foundations/Authors)) who make this all possible.
