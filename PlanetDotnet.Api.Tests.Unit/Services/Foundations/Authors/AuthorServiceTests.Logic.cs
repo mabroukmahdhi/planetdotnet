@@ -12,6 +12,7 @@ using PlanetDotnet.Shared.Abstractions.GeoPositions;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
@@ -175,6 +176,20 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             {
                 author.Avatar.Should().NotBeNull();
             }
+        }
+
+        [Fact]
+        public Task ShouldHaveSecureAndParsableFeed()
+        {
+            // given
+            var authors = GetAuthors();
+
+            this.authorBrokerMock.Setup(broker =>
+               broker.SelectAllAuthers())
+                   .Returns(authors);
+
+            // using MemberData for this test is slow. Intentionally using Task.WhenAll here!
+            return Task.WhenAll(authors.Select(AuthorHasSecureAndParseableFeed));
         }
     }
 }

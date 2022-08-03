@@ -4,6 +4,7 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Moq;
 using PlanetDotnet.Api.Brokers.Authors;
 using PlanetDotnet.Api.Brokers.Gravatars;
@@ -17,7 +18,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Tynamix.ObjectFiller;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
@@ -101,6 +104,41 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
             var hashedString = string.Join(string.Empty,
                 hashedBytes.Select(b => b.ToString("X2")).ToArray());
             return hashedString;
+        }
+
+        private async Task AuthorHasSecureAndParseableFeed(IAmACommunityMember author)
+        {
+            try
+            {
+                foreach (var feedUri in author.FeedUris)
+                    Assert.Equal("https", feedUri.Scheme);
+
+                var authors = new[] { author };
+                var feed = await this.authorService.RetrieveFeedAsync(null); 
+
+                Assert.NotNull(feed);
+
+                var allItems = feed.Items.Where(i => i != null).ToList();
+
+                Assert.True(allItems?.Count > 0, $"Author {author?.FirstName} {author?.LastName} @{author?.GitHubHandle} doesn't meet post policy {author?.FeedUris?.FirstOrDefault()?.OriginalString}");
+            }
+            catch (Exception ex)
+            {
+                testOutputHelper.WriteLine($"Feed(s) for {author.FirstName} {author.LastName} @{author?.GitHubHandle} is null or empty {author?.FeedUris?.FirstOrDefault()?.OriginalString}");
+
+                if (author is IAmAYoutuber youtuber)
+                {
+                    testOutputHelper.WriteLine("Auhtor is a YouTuber, and will at max have 15 items in feed, ignore empty feed");
+                    return;
+                }
+                else
+                {
+                    Assert.True(false, $"Feed(s) for {author.FirstName} {author.LastName}  @{author?.GitHubHandle}  is null or empty @{author?.FeedUris?.FirstOrDefault()?.OriginalString}");
+                    testOutputHelper.WriteLine($"Feed(s) for {author.FirstName} {author.LastName} is null or empty");
+                }
+
+                throw ex;
+            }
         }
     }
 }
