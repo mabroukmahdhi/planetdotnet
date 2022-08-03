@@ -114,6 +114,7 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
 
             foreach (var author in authors)
             {
+                author.FeedLanguageCode.Should().NotBeNullOrWhiteSpace();
                 cultureNames.Should().Contain(author.FeedLanguageCode);
             }
         }
