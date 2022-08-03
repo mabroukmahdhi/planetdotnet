@@ -26,5 +26,4 @@ namespace PlanetDotnet.Api
             builder.Services.AddScoped<IAuthorService, AuthorService>();
         }
     }
-
 }
