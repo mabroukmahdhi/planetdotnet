@@ -163,5 +163,18 @@ namespace PlanetDotnet.Api.Tests.Unit.Services.Foundations.Authors
                 author.Position.Lng.Should().BeInRange(-180.0, 180);
             }
         }
+
+        [Fact]
+        public void ShouldNotDefineAvatarProperty()
+        {
+            // given
+            var authors = GetAuthors();
+
+            // when .. then
+            foreach (var author in authors)
+            {
+                author.Avatar.Should().NotBeNull();
+            }
+        }
     }
 }
