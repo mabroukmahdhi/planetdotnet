@@ -18,6 +18,7 @@ using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
 using PlanetDotnet.Services.Views.MapViews;
 using PlanetDotnet.Services.Views.Podcasts;
+using PlanetDotnet.Services.Views.Previews;
 using PlanetDotnet.Services.Views.Welcomes;
 using System;
 using System.Globalization;
@@ -47,6 +48,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IPodcastViewService, PodcastViewService>();
             services.AddScoped<IWelcomeViewService, WelcomeViewService>();
             services.AddScoped<IPreviewService, PreviewService>();
+            services.AddScoped<IPreviewViewService, PreviewViewService>();
         }
 
         public static async ValueTask SetDefaultCulture(
