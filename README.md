@@ -37,6 +37,9 @@ public class BruceWayne : IAmACommunityMember
     public Uri WebSite => new Uri("https://brave-field-0981c0d03.1.azurestaticapps.net/");
     public IEnumerable<Uri> FeedUris { get { yield return new Uri("https://brave-field-0981c0d03.1.azurestaticapps.net/api/rss"); } }
     public string FeedLanguageCode => "en";
+    
+    // This property should be like this. (Intern use)
+    public string Avatar { get; set; }
 }
 ```
 
