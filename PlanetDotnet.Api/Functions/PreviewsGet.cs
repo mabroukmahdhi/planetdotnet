@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Api.Services.Foundations.Authors;
 using System;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Api.Functions
 {
@@ -22,16 +23,15 @@ namespace PlanetDotnet.Api.Functions
             this.authorService = authorService;
 
         [FunctionName("PreviewsGet")]
-        public IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "previews")] HttpRequest req,
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "previews")] HttpRequest req,
             ILogger log)
         {
             try
             {
-                var authors = this.authorService.RetrieveAllAuthors();
+                var previews = await this.authorService.RetrieveAllPreviewsAsync();
 
-
-                return new OkObjectResult(authors);
+                return new OkObjectResult(previews);
             }
             catch (AuthorServiceException authorServiceException)
             {

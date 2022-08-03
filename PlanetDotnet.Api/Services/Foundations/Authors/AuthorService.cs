@@ -1,13 +1,15 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) .NET Community, Mabrouk Mahdhi
+// Copyright (c) .NET Community, Mabrouk Mahdhi, PlanetXamarin
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using Humanizer;
 using Microsoft.Extensions.Caching.Memory;
 using PlanetDotnet.Api.Brokers.Authors;
 using PlanetDotnet.Api.Brokers.Gravatars;
 using PlanetDotnet.Api.Brokers.Loggings;
+using PlanetDotnet.Api.Extensions;
 using PlanetDotnet.Api.Models.Foundations.Authors.Exceptions;
 using PlanetDotnet.Api.Models.Foundations.Feeds.Exceptions;
 using PlanetDotnet.Api.Models.Foundations.Previews;
@@ -100,9 +102,65 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
             }
         }
 
-        public IEnumerable<PreviewItem> RetrieveAllPreviews()
+        public async ValueTask<IEnumerable<PreviewItem>> RetrieveAllPreviewsAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var authors = RetrieveAllAuthors();
+                var feed = await RetrieveFeedAsync(400);
+
+                var previewItems = new List<PreviewItem>();
+                foreach (var item in feed.Items)
+                {
+                    var author = authors.FirstOrDefault(a => MatchesAuthorUrls(a, item.Links.Select(l => l.Uri), item));
+
+                    string authorName;
+
+                    if (author != null)
+                    {
+                        authorName = $"{author.FirstName} {author.LastName}".Trim();
+                    }
+                    // If no author was matched, extract the name from the RSS feed, something is better than nothing right?!
+                    else
+                    {
+                        var creator = item.ElementExtensions.FirstOrDefault(x => x.OuterName == "creator" && x.OuterNamespace == "http://purl.org/dc/elements/1.1/");
+                        if (creator != null)
+                        {
+                            authorName = creator.GetObject<XmlElement>().Value ?? string.Empty;
+                        }
+                        else
+                        {
+                            authorName = string.Join(", ", item.Authors.Select(a => $"{a.Name} {a.Email}".Trim()));
+                        }
+                    }
+
+                    var link = item.Links.FirstOrDefault()?.Uri.ToString() ?? string.Empty;
+                    var html = item.Content?.ToHtml() ?? item.Summary?.ToHtml() ?? string.Empty;
+
+                    var previewItem = new PreviewItem
+                    {
+                        AuthorName = authorName,
+                        Gravatar = author?.Avatar,
+                        Title = item.Title.Text,
+                        Link = link,
+                        Body = html.Sanitize(),
+                        PublishDate = item.PublishDate.Humanize()
+                    };
+
+                    previewItems.Add(previewItem);
+                }
+
+                return previewItems;
+            }
+            catch (Exception exception)
+            {
+                var authorServiceException =
+                    new AuthorServiceException(exception);
+
+                this.loggingBroker.LogError(authorServiceException);
+
+                throw authorServiceException;
+            }
         }
 
         public Task<SyndicationFeed> RetrieveFeedAsync(
@@ -325,46 +383,59 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
             return stringWriter.ToString();
         }
 
-    }
-
-    internal static class ExceptionExtensions
-    {
-        public static TException WithData<TException>(this TException exception, string key, object value) where TException : Exception
+        private static bool MatchesAuthorUrls(IAmACommunityMember author, IEnumerable<Uri> urls, SyndicationItem item)
         {
-            exception.Data[key] = value;
-            return exception;
-        }
-    }
+            var authorHosts = author.FeedUris.Select(au => au.Host.ToLowerInvariant()).Concat(new[] { author.WebSite.Host.ToLowerInvariant() }).ToArray();
+            var feedBurnerAuthors = author.FeedUris.Where(au => au.Host.Contains("feeds.feedburner")).ToList();
+            var mediumAuthors = author.FeedUris.Where(au => au.Host.Contains("medium.com")).ToList();
+            var youtubeAuthors = author.FeedUris.Where(au => au.Host.Contains("youtube.com")).ToList();
 
-    internal static class SyndicationItemExtensions
-    {
-        public static bool ApplyDefaultFilter(this SyndicationItem item)
-        {
-            if (item == null)
-                return false;
-
-            var hasXamarinCategory = false;
-            var hasXamarinKeywords = false;
-
-            if (item.Categories.Count > 0)
+            foreach (var itemUrl in urls)
             {
-                hasXamarinCategory = item.Categories.Any(category =>
-                    category.Name.ToLowerInvariant().Contains("xamarin") || category.Name.ToLowerInvariant().Contains(".net maui"));
-            }
+                var host = itemUrl.Host.ToLowerInvariant();
 
-            if (item.ElementExtensions.Count > 0)
-            {
-                var element = item.ElementExtensions.FirstOrDefault(e => e.OuterName == "keywords");
-                if (element != null)
+                if (host.Contains("medium.com"))
                 {
-                    var keywords = element.GetObject<string>();
-                    hasXamarinKeywords = keywords.ToLowerInvariant().Contains("xamarin") || keywords.ToLowerInvariant().Contains(".net maui");
+                    if (itemUrl.Segments.Count() >= 3)
+                    {
+                        var mediumId = itemUrl.Segments[1].Trim('/');
+                        return mediumAuthors.Any(fba => fba.AbsoluteUri.Contains(mediumId));
+                    }
                 }
+
+                if (host.Contains("feedproxy.google")) //  feed burner is messed up :(
+                {
+                    // url will look like:
+                    // feedproxy.google.com/~r/<feedburnerId>/~3/bgJNuDXwkU0/O
+                    if (itemUrl.Segments.Count() >= 5)
+                    {
+                        var feedBurnerId = itemUrl.Segments[2].Trim('/');
+                        return feedBurnerAuthors.Any(fba => fba.AbsoluteUri.Contains(feedBurnerId));
+                    }
+                }
+
+                if (host.Contains("youtube.com")) //need to match youtube channel
+                {
+                    var channel = item?.Authors?.FirstOrDefault()?.Uri;
+                    if (channel == null)
+                        return false;
+
+                    var id = channel.Replace("https://www.youtube.com/channel/", string.Empty);
+
+                    return youtubeAuthors.Any(yt => yt.AbsoluteUri.Contains(id));
+                }
+
+                if (authorHosts.Contains(host))
+                    return true;
+
+                if (authorHosts.Contains(host.Replace("www.", "")))
+                    return true;
+
+                if (authorHosts.Contains(host.Insert(0, "www.")))
+                    return true;
             }
 
-            var hasXamarinTitle = (item.Title?.Text.ToLowerInvariant().Contains("xamarin") ?? false) || (item.Title?.Text.ToLowerInvariant().Contains(".net maui") ?? false);
-
-            return hasXamarinTitle || hasXamarinCategory || hasXamarinKeywords;
+            return false;
         }
     }
 }

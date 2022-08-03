@@ -1,5 +1,21 @@
-﻿<h3>PreviewComponent</h3>
-
-@code {
-
-}
+﻿<div class="syndicationItem">
+    @if (Preview.Gravatar != null)
+    {
+        <img src="@Preview.Gravatar" alt="@Preview.AuthorName avatar" style="float: left; max-width: 65px; margin-right: 10px;" class="img-circle" />
+    }
+    <h1 class="syndicationItemTitle"><a href="@Preview.Link" target="_blank">@((MarkupString)Preview.Title)</a></h1>
+    <h2 class="syndicationItemDate">
+        @Preview.PublishDate
+        @if (!string.IsNullOrWhiteSpace(Preview.AuthorName))
+        {
+            <text> | </text>
+            @Preview.AuthorName
+        }
+    </h2>
+    <div class="syndicationItemContent">
+        @((MarkupString)Preview.Body)
+    </div>
+    <div class="syndicationItemFooter">
+        <a href="@Preview.Link" class="btn btn-primary">@Localizer["VIEW_ORIGINAL_POST"]</a>
+    </div>
+</div>

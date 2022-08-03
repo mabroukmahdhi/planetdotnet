@@ -4,11 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Microsoft.AspNetCore.Components;
+using PlanetDotnet.Models.Views.Previews;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace PlanetDotnet.Views.Components.PreviewComponents
+namespace PlanetDotnet.Services.Views.Previews
 {
-    public partial class PreviewItemComponent : ComponentBase
+    public interface IPreviewViewService
     {
+        ValueTask<IEnumerable<PreviewItemView>> LoadPreviewsAsync();
     }
 }

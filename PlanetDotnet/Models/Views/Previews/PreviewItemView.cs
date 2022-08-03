@@ -8,5 +8,11 @@ namespace PlanetDotnet.Models.Views.Previews
 {
     public class PreviewItemView
     {
+        public string AuthorName { get; set; }
+        public string Gravatar { get; set; }
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public string Body { get; set; }
+        public string PublishDate { get; set; }
     }
 }

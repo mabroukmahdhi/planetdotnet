@@ -165,6 +165,9 @@
   <data name="PODCASTS_TITLE" xml:space="preserve">
     <value>.NET-Podcasts, Shows, Newsletter und Open-Source-Software</value>
   </data>
+  <data name="PREVIEW" xml:space="preserve">
+    <value>Vorschau</value>
+  </data>
   <data name="READ_IN" xml:space="preserve">
     <value>In anderer Sprache lesen:</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="TWITTER" xml:space="preserve">
     <value>Twitter</value>
+  </data>
+  <data name="VIEW_ORIGINAL_POST" xml:space="preserve">
+    <value>Orginal ansehen</value>
   </data>
   <data name="WELCOME_INTRO" xml:space="preserve">
     <value>Wir sind ein Aggregator von Inhalten von .NET Community-Mitgliedern. Warum einzeln abonnieren, wenn Du einen bequemen RSS-Feed abonnieren kannst, um alle von den Community-Mitgliedern generierten Inhalte in Deinem Newsreader zu sehen. Wenn RSS nicht Dein Ding ist, folge unseren &lt;a href="{0}"&gt;Twitter&lt;/a&gt;- oder &lt;a href="{1}"&gt;Facebook&lt;/a&gt;-Konten, die automatisch mit den neuesten Inhalten aktualisiert werden aus der Gemeinde.</value>

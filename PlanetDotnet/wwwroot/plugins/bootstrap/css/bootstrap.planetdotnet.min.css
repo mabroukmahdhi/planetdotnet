@@ -33,7 +33,7 @@ hr {
     }
 
     .navbar-inverse .navbar-header {
-        border-bottom: 1px solid #9f57a0;
+        border-bottom: 1px solid #8A2BE2;
     }
 
         .navbar-inverse .navbar-header .navbar-brand {
@@ -74,7 +74,7 @@ hr {
 
         .navbar-inverse .navbar-collapse ul li {
             background-color: #8A2BE2;
-            border-bottom: 1px solid #9f57a0;
+            border-bottom: 1px solid #8A2BE2;
             padding: 0 20px;
         }
 
@@ -91,7 +91,7 @@ hr {
 }
 
 .btn-primary {
-    background-color: #9f57a0;
+    background-color: #8A2BE2;
     border-radius: 0;
     border: 0;
     padding: 10px 15px;

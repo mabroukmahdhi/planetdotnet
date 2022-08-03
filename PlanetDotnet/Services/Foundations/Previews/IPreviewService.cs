@@ -4,12 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
+using PlanetDotnet.Models.Foundations.Previews;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Services.Foundations.Feeds
+namespace PlanetDotnet.Services.Foundations.Previews
 {
-    public interface IFeedService
+    public interface IPreviewService
     {
-        ValueTask<string> RetrieveFeedAsync();
+        ValueTask<IEnumerable<PreviewItem>> RetrievePreviewsAsync();
     }
 }

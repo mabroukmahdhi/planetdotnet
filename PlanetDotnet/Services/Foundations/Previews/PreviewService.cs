@@ -6,17 +6,19 @@
 
 using PlanetDotnet.Brokers.Apis;
 using PlanetDotnet.Brokers.Loggings;
+using PlanetDotnet.Models.Foundations.Previews;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PlanetDotnet.Services.Foundations.Feeds
+namespace PlanetDotnet.Services.Foundations.Previews
 {
-    public class FeedService : IFeedService
+    public class PreviewService : IPreviewService
     {
         private readonly IApiBroker apiBroker;
         private readonly ILoggingBroker loggingBroker;
 
-        public FeedService(
+        public PreviewService(
             IApiBroker apiBroker,
             ILoggingBroker loggingBroker)
         {
@@ -24,17 +26,17 @@ namespace PlanetDotnet.Services.Foundations.Feeds
             this.loggingBroker = loggingBroker;
         }
 
-        public async ValueTask<string> RetrieveFeedAsync()
+        public async ValueTask<IEnumerable<PreviewItem>> RetrievePreviewsAsync()
         {
             try
             {
-                return await this.apiBroker.GetFeedAsync();
+                return await apiBroker.GetPreviewsAsync();
             }
             catch (Exception exception)
             {
-                this.loggingBroker.LogError(exception);
+                loggingBroker.LogError(exception);
 
-                return string.Empty;
+                return null;
             }
         }
     }
