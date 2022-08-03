@@ -1,5 +1,5 @@
 ﻿// ---------------------------------------------------------------
-// Copyright (c) .NET Community, Mabrouk Mahdhi, Planet Xamarin
+// Copyright (c) .NET Community, Planet Xamarin
 // Licensed under the MIT License.
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
@@ -10,7 +10,7 @@ using Xunit;
 
 namespace PlanetDotnet.Api.Tests.Unit.Extensions
 {
-    public class IEnumerableExtensionsTest
+    public class IEnumerableExtensionsTests
     {
         [Fact]
         public void DistinctBySyndicationItemId_WithDuplicateIds_Test()
@@ -21,18 +21,6 @@ namespace PlanetDotnet.Api.Tests.Unit.Extensions
                 new SyndicationItem { Id = "http://blog.com/?p=23" }
             };
 
-            var filteredItems = items.DistinctBy(i => i.Id).ToList();
-            Assert.Single(filteredItems);
-        }
-
-        [Fact]
-        public void DistinctBySyndicationItemId_WithDuplicateIdsInDifferentLetterCases_Test()
-        {
-            var items = new SyndicationItem[]
-            {
-                new SyndicationItem { Id = "http://blog.com/?p=23" },
-                new SyndicationItem { Id = "http://blog.com/?P=23" }
-            };
             var filteredItems = items.DistinctBy(i => i.Id).ToList();
             Assert.Single(filteredItems);
         }
