@@ -5,25 +5,19 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Brokers.Loggings;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Podcasts;
-using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System;
 
 namespace PlanetDotnet.Services.Views.Podcasts
 {
     public class PodcastViewService : IPodcastViewService
     {
-        private readonly IAuthorService authorService;
         private readonly ILoggingBroker loggingBroker;
 
         public PodcastViewService(
-            IAuthorService authorService,
-            ILoggingBroker loggingBroker)
-        {
-            this.authorService = authorService;
+            ILoggingBroker loggingBroker) =>
             this.loggingBroker = loggingBroker;
-        }
 
         public PodcastView InitializePodcastView(IAmACommunityMember author)
         {
@@ -31,8 +25,8 @@ namespace PlanetDotnet.Services.Views.Podcasts
             {
                 return new PodcastView
                 {
-                    Id = author.GetType().Name,
-                    Avatar = this.authorService.RetrieveAuthorImage(author),
+                    Id = $"{author.FirstName}{author.LastName}",
+                    Avatar = author.Avatar,
                     FullName = $"{author.FirstName} {author.LastName}",
                     StateOrRegion = author.StateOrRegion,
                     TwitterHandle = author.TwitterHandle,

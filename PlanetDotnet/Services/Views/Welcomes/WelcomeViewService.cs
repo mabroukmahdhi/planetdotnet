@@ -6,13 +6,13 @@
 
 using Microsoft.Extensions.Configuration;
 using PlanetDotnet.Brokers.Loggings;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.Configurations;
 using PlanetDotnet.Models.Views.Welcomes;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Views.Welcomes
 {
@@ -35,7 +35,7 @@ namespace PlanetDotnet.Services.Views.Welcomes
             this.loggingBroker = loggingBroker;
         }
 
-        public WelcomeView InitializeWelcomeView()
+        public async ValueTask<WelcomeView> InitializeWelcomeViewAsync()
         {
             try
             {
@@ -48,25 +48,18 @@ namespace PlanetDotnet.Services.Views.Welcomes
                     GithubRepository = this.localConfigurations.GithubRepository,
                     TwitterLink = this.localConfigurations.TwitterLink,
                     PreviewPagePath = this.localConfigurations.PreviewPagePath,
-                    Podcasts = GetPodcasts()
+                    Podcasts = await GetPodcastsAsync()
                 };
             }
             catch (Exception ex)
             {
                 this.loggingBroker.LogError(ex);
 
-                return null;
+                return default;
             }
         }
 
-        private IEnumerable<IAmACommunityMember> GetPodcasts()
-        {
-            var authors = this.authorService.RetrieveAllAuthers();
-
-            return authors?.Where(author =>
-                author is IAmAPodcast
-                || author is IAmANewsletter
-                || author is IAmAFrameworkForDotNet);
-        }
+        private async ValueTask<IEnumerable<IAmACommunityMember>> GetPodcastsAsync() =>
+            await this.authorService.RetrieveAllPodcastsAsync();
     }
 }

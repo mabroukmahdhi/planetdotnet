@@ -16,8 +16,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.AddAutofacServiceProvider();
-
 builder.Services.AddBrokers();
 builder.Services.AddServices();
 
@@ -32,6 +30,5 @@ builder.Services.AddScoped(sp =>
 var host = builder.Build();
 
 await host.Services.SetDefaultCulture();
-host.Services.PostFeeds();
 
 await host.RunAsync();

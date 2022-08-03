@@ -4,8 +4,8 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Foundations.Markers;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 
 namespace PlanetDotnet.Services.Views.MapViews
@@ -22,7 +22,7 @@ namespace PlanetDotnet.Services.Views.MapViews
             {
                 yield return new Marker
                 {
-                    Id = member.GetType().Name,
+                    Id = $"{member.FirstName}{member.LastName}",
                     Lat = member.Position.Lat,
                     Lng = member.Position.Lng,
                     Name = $"{member.FirstName} {member.LastName}",

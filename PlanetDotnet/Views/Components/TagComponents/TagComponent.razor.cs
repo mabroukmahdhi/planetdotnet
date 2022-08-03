@@ -5,7 +5,6 @@
 // ---------------------------------------------------------------
 
 using Microsoft.AspNetCore.Components;
-using PlanetDotnet.Models.Foundations.Tags;
 using PlanetDotnet.Models.Views.Tags;
 using SharpStyles.Models;
 using System.Collections.Generic;
@@ -15,7 +14,7 @@ namespace PlanetDotnet.Views.Components.TagComponents
     public partial class TagComponent : ComponentBase
     {
         [Parameter]
-        public IEnumerable<Tag> Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
 
         public SharpStyle Style { get; set; }
 

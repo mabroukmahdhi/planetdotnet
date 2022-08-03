@@ -4,9 +4,10 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Views.Authors.ListViews
 {
@@ -17,7 +18,7 @@ namespace PlanetDotnet.Services.Views.Authors.ListViews
         public AuthorListViewService(IAuthorService authorService) =>
              this.authorService = authorService;
 
-        public IEnumerable<IAmACommunityMember> LoadCommunityMembers() =>
-            this.authorService.RetrieveAllAuthers();
+        public async ValueTask<IEnumerable<IAmACommunityMember>> LoadAuthorsAsync() =>
+            await this.authorService.RetrieveAllAuthorsAsync();
     }
 }

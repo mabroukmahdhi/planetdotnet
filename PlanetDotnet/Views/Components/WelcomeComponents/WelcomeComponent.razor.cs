@@ -7,6 +7,7 @@
 using Microsoft.AspNetCore.Components;
 using PlanetDotnet.Models.Views.Welcomes;
 using PlanetDotnet.Services.Views.Welcomes;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Views.Components.WelcomeComponents
 {
@@ -17,15 +18,10 @@ namespace PlanetDotnet.Views.Components.WelcomeComponents
 
         public WelcomeView WelcomeView { get; set; }
 
-        protected override void OnParametersSet()
+        protected async override Task OnInitializedAsync()
         {
-            try
-            {
-                this.WelcomeView = WelcomeViewService
-                     .InitializeWelcomeView();
-            }
-            catch
-            { }
+            this.WelcomeView = await WelcomeViewService
+                     .InitializeWelcomeViewAsync();
         }
     }
 }

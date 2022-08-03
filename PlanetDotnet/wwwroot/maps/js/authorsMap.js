@@ -71,6 +71,9 @@ function getMarker(id, lat, lng, name, gravatarHash) {
             selectedAuthor.removeClass('active');
         }
 
+        console.log(selectedAuthor);
+        console.log(id);
+
         selectedAuthor = $('#' + id).addClass('active');
         $('html, body').animate({
             scrollTop: selectedAuthor.offset().top - 75

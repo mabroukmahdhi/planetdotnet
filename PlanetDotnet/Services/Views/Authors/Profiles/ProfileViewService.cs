@@ -5,9 +5,9 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Brokers.Loggings;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Models.Views.Authors;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Shared.Abstractions;
 using System;
 
 namespace PlanetDotnet.Services.Views.Authors.Profiles
@@ -31,8 +31,8 @@ namespace PlanetDotnet.Services.Views.Authors.Profiles
             {
                 return new ProfileView
                 {
-                    Id = author.GetType().Name,
-                    Avatar = RetrieveAvatar(author),
+                    Id = $"{author.FirstName}{author.LastName}",
+                    Avatar = author.Avatar,
                     FullName = $"{author.FirstName} {author.LastName}",
                     StateOrRegion = author.StateOrRegion,
                     TwitterHandle = author.TwitterHandle,
@@ -48,9 +48,6 @@ namespace PlanetDotnet.Services.Views.Authors.Profiles
                 return null;
             }
         }
-
-        public string RetrieveAvatar(IAmACommunityMember author) =>
-           this.authorService.RetrieveAuthorImage(author);
 
         public void LogError(Exception ex) =>
             this.loggingBroker.LogError(ex);

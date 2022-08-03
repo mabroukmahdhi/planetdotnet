@@ -5,11 +5,12 @@
 // ---------------------------------------------------------------
 
 using PlanetDotnet.Models.Views.Welcomes;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Views.Welcomes
 {
     public interface IWelcomeViewService
     {
-        WelcomeView InitializeWelcomeView();
+        ValueTask<WelcomeView> InitializeWelcomeViewAsync();
     }
 }

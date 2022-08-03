@@ -6,8 +6,8 @@
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using PlanetDotnet.Models.Foundations.Abstractions;
 using PlanetDotnet.Services.Views.MapViews;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

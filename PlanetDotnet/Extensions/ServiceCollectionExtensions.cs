@@ -4,19 +4,15 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Blazored.LocalStorage;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlanetDotnet.Brokers.Apis;
-using PlanetDotnet.Brokers.Authors;
-using PlanetDotnet.Brokers.Gravatars;
 using PlanetDotnet.Brokers.Localizations;
 using PlanetDotnet.Brokers.Loggings;
 using PlanetDotnet.Brokers.Navigations;
 using PlanetDotnet.Services.Foundations.Authors;
+using PlanetDotnet.Services.Foundations.Feeds;
 using PlanetDotnet.Services.Foundations.Localizations;
 using PlanetDotnet.Services.Views.Authors.ListViews;
 using PlanetDotnet.Services.Views.Authors.Profiles;
@@ -25,7 +21,6 @@ using PlanetDotnet.Services.Views.Podcasts;
 using PlanetDotnet.Services.Views.Welcomes;
 using System;
 using System.Globalization;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace PlanetDotnet.Extensions
@@ -34,8 +29,6 @@ namespace PlanetDotnet.Extensions
     {
         public static void AddBrokers(this IServiceCollection services)
         {
-            services.AddSingleton<IAuthorBroker, AuthorBroker>();
-            services.AddScoped<IGravatarBroker, GravatarBroker>();
             services.AddScoped<ILogger, Logger<LoggingBroker>>();
             services.AddScoped<ILoggingBroker, LoggingBroker>();
             services.AddBlazoredLocalStorage();
@@ -53,11 +46,7 @@ namespace PlanetDotnet.Extensions
             services.AddScoped<IMapViewService, MapViewService>();
             services.AddScoped<IPodcastViewService, PodcastViewService>();
             services.AddScoped<IWelcomeViewService, WelcomeViewService>();
-        }
-
-        public static void AddAutofacServiceProvider(this WebAssemblyHostBuilder builder)
-        {
-            builder.ConfigureContainer(new AutofacServiceProviderFactory(ConfigureContainer));
+            services.AddScoped<IFeedService, FeedService>();
         }
 
         public static async ValueTask SetDefaultCulture(
@@ -81,22 +70,6 @@ namespace PlanetDotnet.Extensions
             CultureInfo.DefaultThreadCurrentUICulture =
                 new CultureInfo(culture);
         }
-
-        public static void PostFeeds(
-            this IServiceProvider services)
-        {
-            var authorService =
-                 services.GetRequiredService<IAuthorService>();
-
-            authorService.PostFeeds();
-        }
-
-        private static void ConfigureContainer(ContainerBuilder builder)
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            builder.RegisterAssemblyModules(assembly);
-        }
-
     }
 
 }

@@ -4,13 +4,14 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using PlanetDotnet.Models.Foundations.Abstractions;
+using PlanetDotnet.Shared.Abstractions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PlanetDotnet.Services.Views.Authors.ListViews
 {
     public interface IAuthorListViewService
     {
-        IEnumerable<IAmACommunityMember> LoadCommunityMembers();
+        ValueTask<IEnumerable<IAmACommunityMember>> LoadAuthorsAsync();
     }
 }
