@@ -16,7 +16,7 @@ namespace PlanetDotnet.Api.Services.Foundations.Authors
     {
         IEnumerable<IAmACommunityMember> RetrieveAllAuthors();
 
-        IEnumerable<PreviewItem> RetrieveAllPreviews();
+        ValueTask<IEnumerable<PreviewItem>> RetrieveAllPreviewsAsync();
 
         Task<SyndicationFeed> RetrieveFeedAsync(
             int? numberOfItems,
