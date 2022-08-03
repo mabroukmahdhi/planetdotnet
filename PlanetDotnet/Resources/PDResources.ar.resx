@@ -177,6 +177,9 @@
   <data name="TWITTER" xml:space="preserve">
     <value>تويتر</value>
   </data>
+  <data name="VIEW_ORIGINAL_POST" xml:space="preserve">
+    <value>مشاهدة النسخة الأصلية</value>
+  </data>
   <data name="WELCOME_INTRO" xml:space="preserve">
     <value>نحن مجمعون للمحتوى من أعضاء مجتمع .NET. لماذا الاشتراك بشكل فردي عندما يمكنك الاشتراك في موجز RSS واحد مناسب ، لمشاهدة كل المحتوى الذي تم إنشاؤه بواسطة أعضاء المجتمع في قارئ الأخبار الخاص بك. إذا لم يكن RSS هو الشيء المفضل لديك ، فاتبع حساباتنا على &lt;a href="{0}"&gt; Twitter &lt;/a&gt; أو &lt;a href="{1}"&gt; Facebook &lt;/a&gt; والتي يتم تحديثها تلقائيًا بأحدث محتوى من المجتمع.</value>
   </data>
