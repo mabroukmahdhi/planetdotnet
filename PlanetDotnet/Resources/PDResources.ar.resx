@@ -165,6 +165,9 @@
   <data name="PODCASTS_TITLE" xml:space="preserve">
     <value>منوعات وأخبار وبرمجيات مفتوحة المصدر</value>
   </data>
+  <data name="PREVIEW" xml:space="preserve">
+    <value>معاينة</value>
+  </data>
   <data name="READ_IN" xml:space="preserve">
     <value>اقرأ بلغة أخرى:</value>
   </data>

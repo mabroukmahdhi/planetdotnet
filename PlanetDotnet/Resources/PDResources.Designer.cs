@@ -61,15 +61,6 @@ namespace PlanetDotnet.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Already an author?.
-        /// </summary>
-        public static string ALREADY_AUTHOR {
-            get {
-                return ResourceManager.GetString("ALREADY_AUTHOR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to You can show off to the world by incorporating this badge into your blog. If you would have it link back to us, that would be totally awesome!.
         /// </summary>
         public static string ALREADY_AUTHOR_BODY {
@@ -201,6 +192,15 @@ namespace PlanetDotnet.Resources {
         public static string PODCASTS_TITLE {
             get {
                 return ResourceManager.GetString("PODCASTS_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string PREVIEW {
+            get {
+                return ResourceManager.GetString("PREVIEW", resourceCulture);
             }
         }
         
