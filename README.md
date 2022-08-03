@@ -75,4 +75,4 @@ Of course you are more than welcome to submit other features and bugfixes as wel
 
 # Acknowledgements
 * Thanks again for the [contributors of PlanetXamarin](https://github.com/planetxamarin/planetxamarin/graphs/contributors) for the greate template.
-* Thanks to [our awesome contributors]([https://github.com/planetxamarin/planetxamarin/graphs/contributors](https://github.com/mabroukmahdhi/planet.net/graphs/contributors)) and our [community of authors]([https://github.com/planetxamarin/planetxamarin/tree/master/src/Firehose.Web/Authors](https://github.com/mabroukmahdhi/planet.net/tree/main/PlanetDotnet.Api/Models/Foundations/Authors)) who make this all possible.
+* Thanks to [our awesome contributors](https://github.com/mabroukmahdhi/planet.net/graphs/contributors) and our [community of authors](https://github.com/mabroukmahdhi/planet.net/tree/main/PlanetDotnet.Api/Models/Foundations/Authors) who make this all possible.
